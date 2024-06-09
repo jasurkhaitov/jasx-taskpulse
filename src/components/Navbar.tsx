@@ -40,10 +40,10 @@ export default function Navbar() {
           <span className='text-xl sm:text-2xl font-mon font-bold text-black dark:text-white'>JasX</span>
         </a>
 
-        <div className='flex items-center justify-end md:gap-[30px]'>
+        <div className='flex items-center justify-end gap-[20px]'>
           <button onClick={handleChangeTheme} className='border-[1px] p-[11px] rounded-lg border-black dark:border-white border-opacity-30 dark:hover:bg-white hover:bg-black hover:bg-opacity-20 dark:hover:bg-opacity-20 duration-100 delay-150'>{mode}</button>
 
-          <div className='border-[1px] py-[10px] px-[10px] rounded-lg border-black dark:border-white border-opacity-30 duration-100 delay-150 flex items-center gap-2 sm:block'>
+          <div className='border-[1px] py-[10px] px-[10px] rounded-lg border-black dark:border-white border-opacity-30 duration-100 delay-150 sm:flex items-center gap-2 hidden'>
             <Link className='px-[12px] py-[4px] dark:hover:bg-white hover:bg-black hover:bg-opacity-20 dark:hover:bg-opacity-20 duration-100 delay-150 rounded-lg text-base text-black dark:text-white' to='/login'>Login</Link>
             
             <Link className='px-[12px] py-[4px] rounded-lg bg-gradient-to-r from-blue-500 to-pink-500 text-base text-white' to='/signup'>Signup</Link>
