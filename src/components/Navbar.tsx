@@ -8,16 +8,13 @@ import User from '../assets/user.png'
 
 import {
   AlertDialog,
-  AlertDialogAction,
   AlertDialogCancel,
   AlertDialogContent,
-  AlertDialogDescription,
   AlertDialogFooter,
   AlertDialogHeader,
   AlertDialogTitle,
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog"
-import { Button } from "@/components/ui/button"
 
 export default function Navbar() {
   const { themeChange, setThemeChange } = useContext(MyGlobalContext);
