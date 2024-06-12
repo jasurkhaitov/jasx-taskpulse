@@ -89,3 +89,20 @@ img {
 button, a {
   @apply cursor-pointer;
 }
+
+::-webkit-scrollbar {
+  width: 11px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: rgb(11, 11, 65);
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background: linear-gradient(blue, crimson);
+}
+
+::-webkit-scrollbar-track {
+  background-color: rgb(11, 11, 65);
+}

@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import Mainpage from "./pages/Mainpage";
 import { GlobalContent, MyGlobalContext } from "./context/Context";
+import Register from "./pages/Register";
 
 function App() {
   // Get the initial theme from localStorage or default to 'dark'
@@ -19,11 +20,13 @@ function App() {
   };
 
   return (
-    <MyGlobalContext.Provider value={contextValue}>
-      <div className={theme}>
-        <Mainpage />
-      </div>
-    </MyGlobalContext.Provider>
+    <div className="font-roboto">
+      <MyGlobalContext.Provider value={contextValue}>
+        <div className={theme}>
+          <Register/>
+        </div>
+      </MyGlobalContext.Provider>
+    </div>
   );
 }
 
