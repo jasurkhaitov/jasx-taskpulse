@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import Mainpage from "./pages/Mainpage";
 import { GlobalContent, MyGlobalContext } from "./context/Context";
 import Register from "./pages/Register";
 
