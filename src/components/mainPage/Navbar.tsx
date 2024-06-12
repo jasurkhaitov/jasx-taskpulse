@@ -5,10 +5,12 @@ import { useContext, useState, useEffect } from "react";
 import { MyGlobalContext } from "@/context/Context";
 import { Link } from "react-router-dom";
 
+
 export default function Navbar() {
+
   const { themeChange, setThemeChange } = useContext(MyGlobalContext);
 
-  const [mode, setMode] = useState(
+  const [mode, setMode] = useState( 
     themeChange === "dark" ? iconSvg.sun : iconSvg.moon
   );
 
