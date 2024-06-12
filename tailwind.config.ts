@@ -11,15 +11,15 @@ const config = {
   prefix: "",
   theme: {
     container: {
-      screens: {
-        "2xl": "1400px",
-        "1200px": "1200px",
-        pnx: "950px"
-      },
       center: true,
       padding: "2rem",
     },
     extend: {
+      screens: {
+        "2xl": "1400px",
+        "1200px": "1200px",
+        'laptop': '1000px'
+      },
       keyframes: {
         "accordion-down": {
           from: { height: "0" },

@@ -34,7 +34,7 @@ export default function Header() {
           </div>
         </div>
 
-        <div className="w-1/2 hidden xl:flex justify-end">
+        <div className="w-1/2 hidden laptop:flex justify-end">
           <iframe
             width="560"
             className="rounded-2xl"
