@@ -1,4 +1,4 @@
-import { Altimg } from "@/utilits/Icon";
+import { Altimg } from "@/utilits/Icon.tsx";
 
 export default function Main() {
   return (
