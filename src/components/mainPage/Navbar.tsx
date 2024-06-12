@@ -1,6 +1,6 @@
 import { iconSvg } from "../../utilits/icon.tsx";
-import Logo from "../../assets/logo.png";
-import LogoDark from "../../../public/JasX.png";
+import Logo from "../../assets/logo.webp";
+import LogoDark from "../../../public/JasX.webp";
 import { useContext, useState, useEffect } from "react";
 import { MyGlobalContext } from "@/context/Context";
 import { Link } from "react-router-dom";

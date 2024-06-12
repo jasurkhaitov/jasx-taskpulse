@@ -13,7 +13,7 @@ const TabsComp = () => {
                     </TabsList>
 
                     {TabsArr.map((item: {value:string, content:string}, idx:number) => (
-                        <TabsContent className="px-5 py-2 text-base text-gray-400 font-semibold" key={idx} value={item.value}>
+                        <TabsContent className="px-5 py-2 text-xl text-black dark:text-white" key={idx} value={item.value}>
                             {item.content}
                         </TabsContent>
                     ))}
