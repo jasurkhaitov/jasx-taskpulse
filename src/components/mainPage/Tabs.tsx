@@ -1,5 +1,5 @@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { TabsArr } from "../../utilits/Icon.tsx";
+import { TabsArr } from "../../utilits/icon.tsx";
 
 const TabsComp = () => {
     return (

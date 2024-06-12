@@ -1,4 +1,4 @@
-import { iconSvg } from "../../utilits/Icon.tsx";
+import { iconSvg } from "../../utilits/icon.tsx";
 import Logo from "../../assets/logo.png";
 import LogoDark from "../../../public/JasX.png";
 import { useContext, useState, useEffect } from "react";

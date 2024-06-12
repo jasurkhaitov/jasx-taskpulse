@@ -1,4 +1,4 @@
-import { ContactLink } from "../../utilits/Icon.tsx";
+import { ContactLink } from "../../utilits/icon.tsx";
 
 export default function Footer() {
   return (

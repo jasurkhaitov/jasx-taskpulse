@@ -4,7 +4,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { TabsArr } from "../../utilits/Icon";
+import { TabsArr } from "../../utilits/icon";
 
 export default function AccordionPage() {
   return (
