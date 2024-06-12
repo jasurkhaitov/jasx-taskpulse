@@ -7,7 +7,7 @@ const TabsComp = () => {
             <div className="xl:w-[1200px] m-auto px-[15px] md:px-[30px] pb-[100px] items-center justify-center">
                 <Tabs className="w-full border-[1px] rounded-lg dark:border-white border-black p-7" defaultValue="budget">
                     <TabsList className="">
-                        {TabsArr.map((item, idx) => (
+                        {TabsArr.map((item: {name:string, value:string, content:string}, idx:number) => (
                             <TabsTrigger className="dark:text-white text-md data-[state=active]:text-white text-black [state=active]:text-white" key={idx} value={item.value}>{item.name}</TabsTrigger>
                         ))}
                     </TabsList>

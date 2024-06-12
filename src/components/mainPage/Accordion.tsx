@@ -12,7 +12,7 @@ export default function AccordionPage() {
       <div className="xl:w-[1200px] m-auto px-[15px] md:px-[30px] pb-[50px] sm:pb-[100px] items-center justify-center">
         <div>
           <AccordionComponent type="single" collapsible>
-            {TabsArr.map((item: {name: string, content:string}, idx:number) => {
+            {TabsArr.map((item: {name: string, content:string, value:string}, idx:number) => {
               return (
                 <AccordionItem
                   key={idx}

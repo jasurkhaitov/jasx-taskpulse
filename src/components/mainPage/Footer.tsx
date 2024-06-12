@@ -8,7 +8,7 @@ export default function Footer() {
 
             <ul className="hidden sm:flex items-center justify-end gap-7">
                 {
-                    ContactLink.map((item, idx) => {
+                    ContactLink.map((item: {url:string, svg:JSX.Element}, idx:number) => {
                         return (
                             <li key={idx}>
                                 <a href={item.url}>{item.svg}</a>
