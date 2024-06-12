@@ -7,6 +7,7 @@ import {
   FaEyeSlash
 } from "react-icons/fa";
 import Navbar from "./Navbar";
+import { Link } from "react-router-dom";
 
 const Signup: React.FC = () => {
   const [name, setName] = useState<string>("");
@@ -187,9 +188,9 @@ const Signup: React.FC = () => {
           </button>
           <div className="mt-4 text-gray-600 dark:text-gray-400 text-center">
             Already have an account?{" "}
-            <a href="/login" className="text-blue-600 dark:text-blue-400">
+            <Link to={"/login"} className="text-blue-600 dark:text-blue-400">
               Login
-            </a>
+            </Link>
           </div>
         </form>
       </div>
