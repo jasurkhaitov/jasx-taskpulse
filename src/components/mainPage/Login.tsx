@@ -1,10 +1,12 @@
 import React, { useState, ChangeEvent, FormEvent } from "react";
 import { FaEnvelope, FaLock, FaEye, FaEyeSlash } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import Navbar from "./Navbar";
 
 const Login: React.FC = () => {
-  const [email, setEmail] = useState<string>("");
+  const location = useLocation();
+  
+  const [email, setEmail] = useState<string>(location.state?.email || "");
   const [password, setPassword] = useState<string>("");
   const [showPassword, setShowPassword] = useState<boolean>(false);
   const [emailFocus, setEmailFocus] = useState<boolean>(false);
@@ -56,26 +58,12 @@ const Login: React.FC = () => {
       <div className="flex justify-center items-center min-h-screen bg-gray-100 dark:bg-gray-900">
         <div className="bg-white dark:bg-gray-800 p-5 sm:p-8 rounded-lg shadow-xl w-[90%] max-w-md">
           <form onSubmit={handleSubmit}>
-            <div className="mb-4">
-              <label
-                className="block mb-1 text-gray-600 dark:text-gray-300"
-                htmlFor="email"
-              >
-                {" "}
-                Email{" "}
+          <div className="mb-4">
+              <label className="block mb-1 text-gray-600 dark:text-gray-300" htmlFor="email">
+                Email
               </label>
-
-              <div
-                className={`relative flex items-center rounded-lg py-2 px-3 transition-all duration-300 border-2 ${
-                  emailFocus
-                    ? "border-blue-500"
-                    : "border-gray-300 dark:border-gray-600"
-                }`}
-              >
-                <FaEnvelope
-                  className={`mr-2 text-gray-500 dark:text-gray-400`}
-                />
-
+              <div className={`relative flex items-center rounded-lg py-2 px-3 transition-all duration-300 border-2 ${emailFocus ? "border-blue-500" : "border-gray-300 dark:border-gray-600"}`}>
+                <FaEnvelope className={`mr-2 text-gray-500 dark:text-gray-400`} />
                 <input
                   className="w-full px-2 py-1 text-gray-700 dark:text-gray-200 bg-transparent focus:outline-none"
                   type="email"

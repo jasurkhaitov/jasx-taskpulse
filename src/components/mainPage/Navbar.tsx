@@ -1,40 +1,39 @@
-import { iconSvg } from "../../utilits/icon.tsx";
-import Logo from "../../assets/logo.webp";
-import LogoDark from "../../../public/JasX.webp";
-import { useContext, useState, useEffect } from "react";
-import { MyGlobalContext } from "@/context/Context";
-import { Link } from "react-router-dom";
-
+import { iconSvg } from "../../utilits/icon.tsx"
+import Logo from "../../assets/logo.webp"
+import LogoDark from "../../../public/JasX.webp"
+import { useContext, useState, useEffect } from "react"
+import { MyGlobalContext } from "@/context/Context"
+import { Link } from "react-router-dom"
 
 export default function Navbar() {
 
-  const { themeChange, setThemeChange } = useContext(MyGlobalContext);
+  const { themeChange, setThemeChange } = useContext(MyGlobalContext)
 
-  const [mode, setMode] = useState( 
+  const [mode, setMode] = useState(
     themeChange === "dark" ? iconSvg.sun : iconSvg.moon
-  );
+  )
 
   useEffect(() => {
-    setMode(themeChange === "dark" ? iconSvg.sun : iconSvg.moon);
-  }, [themeChange]);
+    setMode(themeChange === "dark" ? iconSvg.sun : iconSvg.moon)
+  }, [themeChange])
 
   const handleChangeTheme = () => {
-    const newTheme = themeChange === "dark" ? "light" : "dark";
-    setThemeChange(newTheme);
-    localStorage.setItem("theme", newTheme);
-  };
+    const newTheme = themeChange === "dark" ? "light" : "dark"
+    setThemeChange(newTheme)
+    localStorage.setItem("theme", newTheme)
+  }
 
   return (
     <nav className="dark:bg-[#1F2937] shadow-md bg-[#F3F4F6] fixed top-0 left-0 w-full border-black border-b-[0.5px] dark:border-white border-opacity-20 z-50">
       <div className="flex 2xl:w-[1500px] items-center justify-between m-auto px-[15px] md:px-[30px] py-3 md:py-5">
-        <a href="/" className="flex items-center justify-center gap-2">
+        <a href="/browse" className="flex items-center justify-center gap-3">
           <img
-            className="w-[30px] sm:w-[40px] dark:hidden"
+            className="w-[25px] sm:w-[35px] dark:hidden"
             src={Logo}
             alt="Logo"
           />
           <img
-            className="w-[35px] sm:w-[45px] hidden dark:block"
+            className="w-[30px] sm:w-[40px] hidden dark:block"
             src={LogoDark}
             alt="Logo Dark"
           />
@@ -46,14 +45,14 @@ export default function Navbar() {
         <div className="flex items-center justify-end gap-[20px]">
           <button
             onClick={handleChangeTheme}
-            className="border-[1px] p-[11px] rounded-lg border-black dark:border-white border-opacity-30 dark:hover:bg-white hover:bg-black hover:bg-opacity-20 dark:hover:bg-opacity-20 duration-100 delay-150"
+            className="border-[1px] p-[10px] rounded-lg border-black dark:border-white border-opacity-30 dark:hover:bg-white hover:bg-black hover:bg-opacity-20 dark:hover:bg-opacity-20 duration-100 delay-150"
           >
             {mode}
           </button>
 
           <a
             href="https://t.me/JasXDev" target="_blank"
-            className="border-[1px] p-[11px] rounded-lg border-black dark:border-white border-opacity-30 dark:hover:bg-white hover:bg-black hover:bg-opacity-20 dark:hover:bg-opacity-20 duration-100 delay-150"
+            className="border-[1px] p-[8px] rounded-lg border-black dark:border-white border-opacity-30 dark:hover:bg-white hover:bg-black hover:bg-opacity-20 dark:hover:bg-opacity-20 duration-100 delay-150"
           >
             <svg
               className=" stroke-black dark:stroke-white"
@@ -76,7 +75,7 @@ export default function Navbar() {
             </svg>
           </a>
 
-          <div className="border-[1px] py-[6px] px-[10px] rounded-lg border-black dark:border-white border-opacity-30 duration-100 delay-150 sm:flex items-center gap-2 hidden">
+          <div className="border-[1px] py-[4px] px-[5px] rounded-lg border-black dark:border-white border-opacity-30 duration-100 delay-150 sm:flex items-center gap-2 hidden">
             <Link
               className="px-[12px] py-[4px] dark:hover:bg-white hover:bg-black hover:bg-opacity-20 dark:hover:bg-opacity-20 duration-100 delay-150 rounded-lg text-base text-black dark:text-white"
               to="/login"
@@ -94,5 +93,5 @@ export default function Navbar() {
         </div>
       </div>
     </nav>
-  );
+  )
 }

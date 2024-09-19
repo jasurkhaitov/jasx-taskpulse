@@ -22,7 +22,7 @@ export default function AccordionPage() {
                   <AccordionTrigger className="border-[1px] border-gray-500 px-3 sm:px-5 hover:no-underline dark:text-white rounded-xl">
                     {item.name}
                   </AccordionTrigger>
-                  <AccordionContent className="p-2 dark:text-gray-400 font-[600]">
+                  <AccordionContent className="p-2 text-[14px] tracking-wide text-gray-500 dark:text-gray-400">
                     {item.content}
                   </AccordionContent>
                 </AccordionItem>

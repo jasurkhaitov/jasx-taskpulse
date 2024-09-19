@@ -7,7 +7,7 @@ export default function Main() {
         {
           Altimg.map((item:string, index:number) => {
             return (
-              <img key={index} src={item} className="w-[40px] m-auto" alt="Alternative Tools" />
+              <img key={index} src={item} className="w-[35px] xsm:w-[40px] m-auto" alt="Alternative Tools" />
             );
           })
         }

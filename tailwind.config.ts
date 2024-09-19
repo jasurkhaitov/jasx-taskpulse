@@ -14,12 +14,17 @@ const config = {
       center: true,
       padding: "2rem",
     },
+    
     extend: {
       screens: {
         "2xl": "1400px",
         "1200px": "1200px",
-        'laptop': '1000px'
+        'laptop': '1000px',
+        'smm': '600px',
+        'xsm': '450px',
+        'xxsm': '350px',
       },
+
       keyframes: {
         "accordion-down": {
           from: { height: "0" },
@@ -30,6 +35,7 @@ const config = {
           to: { height: "0" },
         },
       },
+
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
@@ -77,6 +83,7 @@ const config = {
 
         darkBack: '#111827',
       },
+
       borderRadius: {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",

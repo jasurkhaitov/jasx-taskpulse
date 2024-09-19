@@ -10,56 +10,51 @@ import Wrike from '../assets/alternative/wrike.webp'
 export const Altimg = [ Asana, Clickup, Monday, Notion, Paymo, Smartsheet, Trello, Wrike ]
 
 export const iconSvg = {
-    sun: (<svg xmlns="http://www.w3.org/2000/svg" width="25px" height="25px" viewBox="0 0 24 24"><path fill="white" fill-rule="evenodd" d="M13 3a1 1 0 1 0-2 0v2a1 1 0 1 0 2 0zM6.343 4.929A1 1 0 0 0 4.93 6.343l1.414 1.414a1 1 0 0 0 1.414-1.414zm12.728 1.414a1 1 0 0 0-1.414-1.414l-1.414 1.414a1 1 0 0 0 1.414 1.414zM12 7a5 5 0 1 0 0 10a5 5 0 0 0 0-10m-9 4a1 1 0 1 0 0 2h2a1 1 0 1 0 0-2zm16 0a1 1 0 1 0 0 2h2a1 1 0 1 0 0-2zM7.757 17.657a1 1 0 1 0-1.414-1.414l-1.414 1.414a1 1 0 1 0 1.414 1.414zm9.9-1.414a1 1 0 0 0-1.414 1.414l1.414 1.414a1 1 0 0 0 1.414-1.414zM13 19a1 1 0 1 0-2 0v2a1 1 0 1 0 2 0z" clip-rule="evenodd"/></svg>),
+    sun: (<svg xmlns="http://www.w3.org/2000/svg" width="18px" height="18px" viewBox="0 0 24 24"><path fill="white" fill-rule="evenodd" d="M13 3a1 1 0 1 0-2 0v2a1 1 0 1 0 2 0zM6.343 4.929A1 1 0 0 0 4.93 6.343l1.414 1.414a1 1 0 0 0 1.414-1.414zm12.728 1.414a1 1 0 0 0-1.414-1.414l-1.414 1.414a1 1 0 0 0 1.414 1.414zM12 7a5 5 0 1 0 0 10a5 5 0 0 0 0-10m-9 4a1 1 0 1 0 0 2h2a1 1 0 1 0 0-2zm16 0a1 1 0 1 0 0 2h2a1 1 0 1 0 0-2zM7.757 17.657a1 1 0 1 0-1.414-1.414l-1.414 1.414a1 1 0 1 0 1.414 1.414zm9.9-1.414a1 1 0 0 0-1.414 1.414l1.414 1.414a1 1 0 0 0 1.414-1.414zM13 19a1 1 0 1 0-2 0v2a1 1 0 1 0 2 0z" clip-rule="evenodd"/></svg>),
 
-    moon: (<svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 256 256"><path fill="currentColor" d="M233.54 142.23a8 8 0 0 0-8-2a88.08 88.08 0 0 1-109.8-109.8a8 8 0 0 0-10-10a104.84 104.84 0 0 0-52.91 37A104 104 0 0 0 136 224a103.1 103.1 0 0 0 62.52-20.88a104.84 104.84 0 0 0 37-52.91a8 8 0 0 0-1.98-7.98m-44.64 48.11A88 88 0 0 1 65.66 67.11a89 89 0 0 1 31.4-26A106 106 0 0 0 96 56a104.11 104.11 0 0 0 104 104a106 106 0 0 0 14.92-1.06a89 89 0 0 1-26.02 31.4"/></svg>),
+    moon: (<svg xmlns="http://www.w3.org/2000/svg" width="17px" height="17px" viewBox="0 0 256 256"><path fill="currentColor" d="M233.54 142.23a8 8 0 0 0-8-2a88.08 88.08 0 0 1-109.8-109.8a8 8 0 0 0-10-10a104.84 104.84 0 0 0-52.91 37A104 104 0 0 0 136 224a103.1 103.1 0 0 0 62.52-20.88a104.84 104.84 0 0 0 37-52.91a8 8 0 0 0-1.98-7.98m-44.64 48.11A88 88 0 0 1 65.66 67.11a89 89 0 0 1 31.4-26A106 106 0 0 0 96 56a104.11 104.11 0 0 0 104 104a106 106 0 0 0 14.92-1.06a89 89 0 0 1-26.02 31.4"/></svg>),
 
-    user: (<svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 36 36"><path fill="white" d="M18 17a7 7 0 1 0-7-7a7 7 0 0 0 7 7m0-12a5 5 0 1 1-5 5a5 5 0 0 1 5-5" className="clr-i-outline clr-i-outline-path-1"/><path fill="white" d="M30.47 24.37a17.16 17.16 0 0 0-24.93 0A2 2 0 0 0 5 25.74V31a2 2 0 0 0 2 2h22a2 2 0 0 0 2-2v-5.26a2 2 0 0 0-.53-1.37M29 31H7v-5.27a15.17 15.17 0 0 1 22 0Z" className="clr-i-outline clr-i-outline-path-2"/><path fill="none" d="M0 0h36v36H0z"/></svg>)
+    user: (<svg xmlns="http://www.w3.org/2000/svg" width="15px" height="15px" viewBox="0 0 36 36"><path fill="white" d="M18 17a7 7 0 1 0-7-7a7 7 0 0 0 7 7m0-12a5 5 0 1 1-5 5a5 5 0 0 1 5-5" className="clr-i-outline clr-i-outline-path-1"/><path fill="white" d="M30.47 24.37a17.16 17.16 0 0 0-24.93 0A2 2 0 0 0 5 25.74V31a2 2 0 0 0 2 2h22a2 2 0 0 0 2-2v-5.26a2 2 0 0 0-.53-1.37M29 31H7v-5.27a15.17 15.17 0 0 1 22 0Z" className="clr-i-outline clr-i-outline-path-2"/><path fill="none" d="M0 0h36v36H0z"/></svg>)
 }
 
 export const TabsArr = [
     {
-        name: "Monthly Budget",
-        value: "budget",
-        content: "Take control of your finances with our Monthly Budget tool. This user-friendly feature allows you to plan and track your spending, ensuring you stay within your financial goals. Categorize your expenses, set spending limits, and monitor your progress with detailed reports and visual charts. Simplify your budgeting process and make informed financial decisions each month."
+      name: "Monthly Budget",
+      value: "budget",
+      content: "Manage your finances, track spending, and set limits with visual reports and charts. Simplify budgeting and stay within your goals."
     },
-
     {
-        name: "Calendar Event",
-        value: "calendar",
-        content: "Effortlessly manage your schedule with our Calendar Event feature. Easily create, edit, and track events to stay organized and on top of your commitments. Set reminders, invite participants, and sync with other calendars to ensure you never miss an important meeting or deadline. Streamline your planning and keep your calendar up-to-date with this versatile scheduling tool."
+      name: "Calendar Event",
+      value: "calendar",
+      content: "Organize your schedule by creating, editing, and tracking events. Set reminders, sync calendars, and never miss important meetings."
     },
-
     {
-        name: "Journal",
-        value: "journal",
-        content: "Capture your thoughts, ideas, and experiences with our Journal feature. This digital diary allows you to write, organize, and reflect on your entries in a secure and user-friendly interface. Add tags, images, and mood indicators to enrich your journaling experience. Whether for personal reflection or professional note-taking, the Journal helps you keep your thoughts organized and accessible."
+      name: "Journal",
+      value: "journal",
+      content: "Record and organize thoughts with a secure journal. Add tags, images, and moods for a richer experience."
     },
-
     {
-        name: "Project Plan",
-        value: "deadline",
-        content: "Streamline your project management with our Project Plan with Deadline feature. This tool enables you to create detailed project plans, set clear deadlines, and assign tasks to team members. Track progress with visual timelines and ensure timely completion of each phase. Stay organized and keep your team aligned with goals and deadlines for successful project delivery."
+      name: "Project Plan",
+      value: "deadline",
+      content: "Create project plans, set deadlines, assign tasks, and track progress with timelines for smooth project execution."
     },
-
     {
-        name: "Read List",
-        value: "story",
-        content: "Keep track of articles, documents, and resources you want to read later with our Read List feature. Easily add items from the web or upload your own files to access them at your convenience. Stay organized and never miss out on valuable information again."
+      name: "Read List",
+      value: "story",
+      content: "Save articles and documents for later reading. Organize and access information conveniently."
     },
-
     {
-        name: "Weekly To-Do",
-        value: "weekly",
-        content: "Stay organized and productive with our Weekly To-Do feature. Plan your week efficiently by listing tasks, setting priorities, and scheduling deadlines. With a clear overview of your commitments, you can tackle each day with confidence and achieve your goals effectively."
+      name: "Weekly To-Do",
+      value: "weekly",
+      content: "Plan your week by listing tasks, setting priorities, and managing deadlines for increased productivity."
     },
-    
     {
-        name: "User Management",
-        value: "user",
-        content: "Efficiently manage user access and permissions with our User Management feature. Easily add, remove, or update user accounts and customize their permissions based on roles and responsibilities. Ensure data security and streamline collaboration by centralizing user administration within your platform."
+      name: "User Management",
+      value: "user",
+      content: "Manage user accounts and permissions securely. Add, remove, and update users based on roles to streamline collaboration."
     },
-]
+  ]
+  
 
 export const ContactLink =[
     {

@@ -8,12 +8,12 @@ const TabsComp = () => {
                 <Tabs className="w-full border-[1px] rounded-lg dark:border-white border-black p-7" defaultValue="budget">
                     <TabsList className="">
                         {TabsArr.map((item: {name:string, value:string}, idx:number) => (
-                            <TabsTrigger className="dark:text-white text-md data-[state=active]:text-white text-black [state=active]:text-white" key={idx} value={item.value}>{item.name}</TabsTrigger>
+                            <TabsTrigger className="dark:text-white text-md data-[state=active]:text-white text-gray [state=active]:text-white" key={idx} value={item.value}>{item.name}</TabsTrigger>
                         ))}
                     </TabsList>
 
                     {TabsArr.map((item: {value:string, content:string}, idx:number) => (
-                        <TabsContent className="px-5 py-2 text-xl text-black dark:text-white" key={idx} value={item.value}>
+                        <TabsContent className="px-5 py-2 text-sm tracking-wide text-black dark:text-white" key={idx} value={item.value}>
                             {item.content}
                         </TabsContent>
                     ))}
