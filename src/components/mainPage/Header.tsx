@@ -17,19 +17,19 @@ export default function Header() {
   const navigate = useNavigate()
 
   const isValidEmail = (email: string) => {
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return emailRegex.test(email);
-  };
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+    return emailRegex.test(email)
+  }
 
   const handleRegisterEmail = (e: { preventDefault: () => void }) => {
-    e.preventDefault();
-    
+    e.preventDefault()
+
     if (!isValidEmail(regEmail)) {
-      alert('Please enter a valid email address.');
+      alert('Please enter a valid email address.')
     } else {
-      navigate('/login', { state: { email: regEmail } });
+      navigate('/login', { state: { email: regEmail } })
     }
-  };
+  }
 
   return (
     <header className="dark:bg-[#111827] bg-white w-full">
@@ -90,7 +90,7 @@ export default function Header() {
 
                         <button onClick={handleRegisterEmail} className='w-[100px] text-white h-10 px-4 py-2 rounded-md border-none bg-gray-900'>Continue</button>
 
-                        
+
                       </div>
                     </form>
                   </AlertDialogDescription>

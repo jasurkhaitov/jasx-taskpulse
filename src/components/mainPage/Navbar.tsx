@@ -1,8 +1,8 @@
-import { iconSvg } from "../../utilits/icon.tsx"
+import { iconSvg } from "../../util/icon.tsx"
 import Logo from "../../assets/logo.webp"
 import LogoDark from "../../../public/JasX.webp"
 import { useContext, useState, useEffect } from "react"
-import { MyGlobalContext } from "@/context/Context"
+import { MyGlobalContext } from "@/hooks/Context.tsx"
 import { Link } from "react-router-dom"
 
 export default function Navbar() {
@@ -26,7 +26,7 @@ export default function Navbar() {
   return (
     <nav className="dark:bg-[#1F2937] shadow-md bg-[#F3F4F6] fixed top-0 left-0 w-full border-black border-b-[0.5px] dark:border-white border-opacity-20 z-50">
       <div className="flex 2xl:w-[1500px] items-center justify-between m-auto px-[15px] md:px-[30px] py-3 md:py-5">
-        <Link to="/browse" className="flex items-center justify-center gap-3">
+        <Link to="/" className="flex items-center justify-center gap-3">
           <img
             className="w-[25px] sm:w-[35px] dark:hidden"
             src={Logo}
