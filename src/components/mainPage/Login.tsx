@@ -25,19 +25,16 @@ const Login: React.FC = () => {
     setShowPassword(!showPassword)
   }
 
-  // Email validation regex
   const isValidEmail = (email: string) => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
     return emailRegex.test(email)
   }
 
-  // Password validation regex
   const isValidPassword = (password: string) => {
     const passwordRegex = /^[A-Z][A-Za-z0-9_/@#\$&]{5,}$/
     return passwordRegex.test(password)
   }
 
-  // Handle email input change
   const handleEmailChange = (e: ChangeEvent<HTMLInputElement>) => {
     setEmail(e.target.value)
     if (!isValidEmail(e.target.value)) {
@@ -47,7 +44,6 @@ const Login: React.FC = () => {
     }
   }
 
-  // Handle password input change
   const handlePasswordChange = (e: ChangeEvent<HTMLInputElement>) => {
     setPassword(e.target.value)
     if (!isValidPassword(e.target.value)) {
@@ -68,7 +64,6 @@ const Login: React.FC = () => {
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
 
-    // If email and password are valid, set the user and navigate
     if (!isValidEmail(email)) {
       setEmailError("Please enter a valid email address.")
       return
@@ -81,9 +76,14 @@ const Login: React.FC = () => {
       return
     }
 
-    // If valid, proceed to set user and navigate
+    let userNameId = email.trim().indexOf("@")
+
+    console.log(email.slice(0, userNameId));
+    
+
     setUser(true)
-    navigate('/documents')
+    
+    navigate('/documents', {state: {email: email, userName: email.slice(0, userNameId)}})
   }
 
   return (
@@ -150,7 +150,6 @@ const Login: React.FC = () => {
               {passwordError && <p className="text-red-500 text-sm mt-1">{passwordError}</p>}
             </div>
 
-            {/* Submit Button */}
             <button
               type="submit"
               className="w-full bg-blue-500 text-white py-3 active:scale-90 rounded-lg hover:bg-blue-600 transition duration-300"
@@ -158,7 +157,6 @@ const Login: React.FC = () => {
               Login
             </button>
 
-            {/* Continue with Google */}
             <div className="text-center my-2 text-gray-600 dark:text-gray-400">or</div>
             <button
               type="button"

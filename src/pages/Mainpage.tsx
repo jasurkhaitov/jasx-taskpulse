@@ -17,7 +17,6 @@ export default function Mainpage() {
   return (
     <div className="font-roboto">
       <div className={themeChange}>
-
         <Navbar />
         <Header />
         <Main />
