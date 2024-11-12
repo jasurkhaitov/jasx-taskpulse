@@ -1,51 +1,33 @@
-import { useState, useEffect } from "react"
-import { GlobalContent, MyGlobalContext } from "@/hooks/Context"
-import Login from "@/components/mainPage/Login"
-import Signup from "@/components/mainPage/Signup"
-import { Route, Routes } from "react-router-dom"
-import NotFound from '@/components/NotFound'
-import PrivateRoute from '@/hooks/Outlet'
-import Mainpage from '@/pages/Mainpage'
-import HomePage from '@/pages/HomePage'
+import { Route, Routes, useNavigate } from 'react-router-dom'
+import Browse from './pages/Browse'
+import NotFound from './pages/NotFound'
+import Document from './components/Document'
+import { useAuth } from '@clerk/clerk-react'
+import { useEffect } from 'react'
 
-export default function App() {
-  const initialTheme = localStorage.getItem('theme') || 'dark'
+function App() {
 
-  const [theme, setTheme] = useState<string>(initialTheme)
-  const [user, setUser] = useState<boolean>(false) 
-  const [sidebarWidth, setSidebarWidth] = useState<number>(300)
-  const [activeBar, setActiveBar] = useState<boolean>(true)
+	const {userId, isLoaded} = useAuth()
 
-  useEffect(() => {
-    localStorage.setItem('theme', theme)
-  }, [theme])
+	const navigate = useNavigate()
 
-  const contextValue: GlobalContent = {
-    themeChange: theme,
-    setThemeChange: setTheme,
-    
-    user: user,
-    setUser: setUser,
+	console.log(userId);
+	console.log(isLoaded);
 
-    sidebarWidth: sidebarWidth,
-    setSidebarWidth: setSidebarWidth,
+	useEffect(() => {
+    if (isLoaded && userId) {
+      navigate('/')
+    }
+  }, [isLoaded])
 
-    activeBar: activeBar,
-    setActiveBar: setActiveBar
-  }
-
-  return (
-    <MyGlobalContext.Provider value={contextValue}>
-      <Routes>
-        <Route path="/" element={<Mainpage />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/signup" element={<Signup />} />
-        <Route path="*" element={<NotFound />} />
-
-        <Route path='documents' element={<PrivateRoute />}>
-          <Route path="/documents" element={<HomePage/>} />
-        </Route>
-      </Routes>
-    </MyGlobalContext.Provider>
-  )
+	return (
+		<Routes>
+			<Route path='/' element={<Browse/>}/>
+			<Route path='/doc' element={<Document/>} />
+			
+			<Route path='*' element={<NotFound/>}/>
+		</Routes>
+	)
 }
+
+export default App;

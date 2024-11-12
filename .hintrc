@@ -3,6 +3,25 @@
     "development"
   ],
   "hints": {
-    "no-inline-styles": "off"
+    "typescript-config/consistent-casing": "off",
+    "highest-available-document-mode": "off",
+    "button-type": "off",
+    "typescript-config/strict": "off",
+    "axe/name-role-value": [
+      "default",
+      {
+        "button-name": "off",
+        "link-name": "off"
+      }
+    ],
+    "no-inline-styles": "off",
+    "disown-opener": "off",
+    "axe/structure": [
+      "default",
+      {
+        "listitem": "off",
+        "list": "off"
+      }
+    ]
   }
 }

@@ -1,53 +1,26 @@
-import type { Config } from 'tailwindcss'
-
-const config = {
+/** @type {import('tailwindcss').Config} */
+export default {
 	darkMode: ['class'],
-	content: [
-		'./pages/**/*.{ts,tsx}',
-		'./components/**/*.{ts,tsx}',
-		'./app/**/*.{ts,tsx}',
-		'./src/**/*.{ts,tsx}',
-	],
-	prefix: '',
+	content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
 	theme: {
-		container: {
-			center: true,
-			padding: '2rem',
-		},
-
 		extend: {
-			screens: {
-				'2xl': '1400px',
-				'1200px': '1200px',
-				laptop: '1000px',
-				laptopmd: '800px',
-				smm: '600px',
-				xsm: '450px',
-				xxsm: '350px',
-			},
-
-			keyframes: {
-				'accordion-down': {
-					from: { height: '0' },
-					to: { height: 'var(--radix-accordion-content-height)' },
-				},
-				'accordion-up': {
-					from: { height: 'var(--radix-accordion-content-height)' },
-					to: { height: '0' },
-				},
-			},
-
-			animation: {
-				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out',
+			borderRadius: {
+				lg: 'var(--radius)',
+				md: 'calc(var(--radius) - 2px)',
+				sm: 'calc(var(--radius) - 4px)',
 			},
 
 			colors: {
-				border: 'hsl(var(--border))',
-				input: 'hsl(var(--input))',
-				ring: 'hsl(var(--ring))',
 				background: 'hsl(var(--background))',
 				foreground: 'hsl(var(--foreground))',
+				card: {
+					DEFAULT: 'hsl(var(--card))',
+					foreground: 'hsl(var(--card-foreground))',
+				},
+				popover: {
+					DEFAULT: 'hsl(var(--popover))',
+					foreground: 'hsl(var(--popover-foreground))',
+				},
 				primary: {
 					DEFAULT: 'hsl(var(--primary))',
 					foreground: 'hsl(var(--primary-foreground))',
@@ -55,10 +28,6 @@ const config = {
 				secondary: {
 					DEFAULT: 'hsl(var(--secondary))',
 					foreground: 'hsl(var(--secondary-foreground))',
-				},
-				destructive: {
-					DEFAULT: 'hsl(var(--destructive))',
-					foreground: 'hsl(var(--destructive-foreground))',
 				},
 				muted: {
 					DEFAULT: 'hsl(var(--muted))',
@@ -68,36 +37,48 @@ const config = {
 					DEFAULT: 'hsl(var(--accent))',
 					foreground: 'hsl(var(--accent-foreground))',
 				},
-				popover: {
-					DEFAULT: 'hsl(var(--popover))',
-					foreground: 'hsl(var(--popover-foreground))',
+				destructive: {
+					DEFAULT: 'hsl(var(--destructive))',
+					foreground: 'hsl(var(--destructive-foreground))',
 				},
-				card: {
-					DEFAULT: 'hsl(var(--card))',
-					foreground: 'hsl(var(--card-foreground))',
+				border: 'hsl(var(--border))',
+				input: 'hsl(var(--input))',
+				ring: 'hsl(var(--ring))',
+				chart: {
+					'1': 'hsl(var(--chart-1))',
+					'2': 'hsl(var(--chart-2))',
+					'3': 'hsl(var(--chart-3))',
+					'4': 'hsl(var(--chart-4))',
+					'5': 'hsl(var(--chart-5))',
 				},
-
-				btnBlue: '#1A56DB',
-
-				darkBox: '#1F2937',
-				lightBox: '#F3F4F6',
-
-				darkBack: '#111827',
-			},
-
-			borderRadius: {
-				lg: 'var(--radius)',
-				md: 'calc(var(--radius) - 2px)',
-				sm: 'calc(var(--radius) - 4px)',
 			},
 
 			fontFamily: {
-				roboto: 'Roboto, sans-serif',
-				mon: 'Montserrat, sans-serif',
+				roboto: ['Roboto', 'sans-serif'],
+				space: ['Space Grotesk', 'sans-serif'],
+			},
+
+			keyframes: {
+				'logo-cloud': {
+					from: { transform: 'translateX(0)' },
+					to: { transform: 'translateX(calc(-100% - 4rem))' },
+				},
+
+				meteor: {
+          "0%": { transform: "rotate(215deg) translateX(0)", opacity: "1" },
+          "70%": { opacity: "1" },
+          "100%": {
+            transform: "rotate(215deg) translateX(-500px)",
+            opacity: "0",
+          },
+				},
+			},
+
+			animation: {
+				'logo-cloud': 'logo-cloud 30s linear infinite',
+				"meteor-effect": "meteor 5s linear infinite",
 			},
 		},
 	},
 	plugins: [require('tailwindcss-animate')],
-} satisfies Config
-
-export default config
+}
