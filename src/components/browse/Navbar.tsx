@@ -4,7 +4,6 @@ import Logo from '../../assets/svg/logoIcon.svg'
 import { LuContact } from 'react-icons/lu'
 import {
 	SignedIn,
-	SignUpButton,
 	SignedOut,
 	UserButton,
 	SignIn,
