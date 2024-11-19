@@ -1,8 +1,12 @@
 import { Link } from 'react-router-dom'
 import HeaderImage from '../../assets/web/header-image.webp'
-import { SignedIn, SignedOut } from '@clerk/clerk-react'
+import { SignInButton } from '@clerk/clerk-react'
+import { useConvexAuth } from 'convex/react'
+import { FaSpinner } from 'react-icons/fa'
 
 export default function Header() {
+	const { isAuthenticated, isLoading } = useConvexAuth()
+
 	return (
 		<section className='text-gray-600 mt-20 dark:text-gray-300 font-roboto'>
 			<div className='max-w-[1150px] px-[15px] mx-auto flex py-20 md:flex-row flex-col items-center'>
@@ -21,25 +25,46 @@ export default function Header() {
 						All-of-them in one space
 					</h1>
 
-					<p className='mb-5 leading-relaxed'> Take control of your tasks with a platform built for individuals. Stay organized, set clear goals, and track progress all in one place. This tool helps you stay focused and productive. </p>
+					<p className='mb-5 leading-relaxed'>
+						{' '}
+						Take control of your tasks with a platform built for individuals.
+						Stay organized, set clear goals, and track progress all in one
+						place. This tool helps you stay focused and productive.{' '}
+					</p>
 
-					<div className='flex items-center'>
-						<SignedOut>
-							<Link to={'/sign-in'} className={`py-[9px] px-5 rounded-sm text-md font-semibold text-white flex items-center justify-center gap-2 bg-gradient-to-r from-blue-500 to-pink-500 active:scale-95`} >
-								Get Started
-							</Link>
-						</SignedOut>
+					<div className='flex items-center gap-2'>
+						{!isAuthenticated && !isLoading && (
+							<SignInButton mode='modal'>
+								<button
+									className={`py-[9px] px-5 rounded-sm text-md font-semibold text-white flex items-center justify-center gap-2 bg-gradient-to-r from-blue-500 to-pink-500 active:scale-95`}
+								>
+									Get Started
+								</button>
+							</SignInButton>
+						)}
 
-						<SignedIn>
-							<Link to={'/documents'} className={`inline-flex text-white bg-blue-600 border-0 py-2 px-6 focus:outline-none hover:bg-blue-700 rounded text-md font-semibold leading-relaxed`} >
+						{isLoading && (
+							<FaSpinner className='animate-spin text-blue-500 text-xl' />
+						)}
+
+						{isAuthenticated && !isLoading && (
+							<Link
+								to={'/documents'}
+								className={`inline-flex text-white bg-blue-600 border-0 py-2 px-6 focus:outline-none hover:bg-blue-700 rounded text-md font-semibold leading-relaxed`}
+							>
 								Documents
 							</Link>
-						</SignedIn>
+						)}
 					</div>
 				</div>
 
 				<div className='lg:max-w-lg lg:w-full md:w-1/2 w-5/6'>
-					<img loading='lazy' className='object-cover object-center rounded-2xl' alt='Hero Image' src={HeaderImage} />
+					<img
+						loading='lazy'
+						className='object-cover object-center rounded-2xl'
+						alt='Hero Image'
+						src={HeaderImage}
+					/>
 				</div>
 			</div>
 		</section>

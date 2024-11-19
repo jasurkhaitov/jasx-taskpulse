@@ -2,15 +2,14 @@ import { Link } from 'react-router-dom'
 import { ModeToggle } from '../providers/mode-toggle'
 import Logo from '../../assets/svg/logoIcon.svg'
 import { LuContact } from 'react-icons/lu'
-import {
-	SignedIn,
-	SignedOut,
-	UserButton
-} from '@clerk/clerk-react'
-import { FaRegUser } from 'react-icons/fa'
+import { SignInButton, SignUpButton, UserButton } from '@clerk/clerk-react'
+import { FaRegUser, FaSpinner } from 'react-icons/fa'
 import { styleUI } from '@/util/data'
+import { useConvexAuth } from 'convex/react'
 
 export default function Navbar() {
+	const { isAuthenticated, isLoading } = useConvexAuth()
+
 	return (
 		<header className='font-roboto bg-background text-gray-600 fixed top-0 left-0 w-full z-10 dark:text-gray-300 shadow-md dark:shadow-xl border-b border-transparent dark:border-gray-800'>
 			<div className='max-w-[1280px] px-[15px] mx-auto flex justify-between py-4 items-center'>
@@ -20,7 +19,7 @@ export default function Navbar() {
 				>
 					<img
 						loading='lazy'
-						className='w-[40px]'
+						className='w-10'
 						src={Logo}
 						alt='Icon of JasX Brand'
 					/>
@@ -41,28 +40,33 @@ export default function Navbar() {
 						<LuContact className='text-xl text-gray-700 dark:text-gray-300' />
 					</a>
 
-					<SignedOut>
-						<Link
-							to={'/sign-in'}
-							className={`text-sm hidden sm:block font-space font-medium text-black dark:text-white`}
-						>
-							Login
-						</Link>
-					</SignedOut>
+					{!isAuthenticated && !isLoading && (
+						<>
+							<SignInButton mode='modal'>
+								<button
+									className={`text-sm hidden sm:block font-space font-medium text-black dark:text-white`}
+								>
+									Login
+								</button>
+							</SignInButton>
 
-					<SignedOut>
-						<Link to={'/register'} className={`${styleUI.gradientButton}`}>
-							<FaRegUser className='text-sm	text-white' />
+							<SignUpButton mode='modal'>
+								<button className={`${styleUI.gradientButton}`}>
+									<FaRegUser className='text-sm	text-white' />
 
-							<span className='text-sm font-space font-medium text-white'>
-								Sign Up
-							</span>
-						</Link>
-					</SignedOut>
+									<span className='text-sm font-space font-medium text-white'>
+										Sign Up
+									</span>
+								</button>
+							</SignUpButton>
+						</>
+					)}
 
-					<SignedIn>
-						<UserButton />
-					</SignedIn>
+					{isLoading && (
+						<FaSpinner className='animate-spin text-blue-500 text-xl' />
+					)}
+
+					{isAuthenticated && !isLoading && <UserButton />}
 				</nav>
 			</div>
 		</header>

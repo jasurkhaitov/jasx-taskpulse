@@ -13,7 +13,7 @@ export default function Contact() {
 
         <div className="w-full max-w-lg mx-auto md:w-1/3 text-center md:text-left">
           <Link to="/" className="flex items-center gap-2 text-gray-900 dark:text-white">
-            <img loading='lazy' className="w-10 h-10" src={Logo} alt="Icon of JasX Brand" />
+            <img loading='lazy' className="w-10" src={Logo} alt="Icon of JasX Brand" />
             <span className="text-xl font-space font-bold">JasX</span>
           </Link>
           <p className="mt-4 text-sm text-gray-600 dark:text-gray-300 leading-relaxed">

@@ -1,20 +1,24 @@
-import { StrictMode } from 'react';
-import { createRoot } from 'react-dom/client';
-import { BrowserRouter } from 'react-router-dom';
-import { ThemeProvider, useTheme } from './components/providers/theme-provider';
-import { shadesOfPurple } from '@clerk/themes';
-import App from './App.tsx';
-import './index.css';
-import { ClerkProvider } from '@clerk/clerk-react';
+import { StrictMode } from 'react'
+import { createRoot } from 'react-dom/client'
+import { BrowserRouter } from 'react-router-dom'
+import { ThemeProvider, useTheme } from './components/providers/theme-provider'
+import { shadesOfPurple } from '@clerk/themes'
+import App from './App.tsx'
+import './index.css'
+import { ClerkProvider, useAuth } from '@clerk/clerk-react'
+import { ConvexProviderWithClerk } from "convex/react-clerk";
+import { ConvexReactClient } from "convex/react";
 
-const PUBLISHABLE_KEY = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY;
+const PUBLISHABLE_KEY = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY
 
 if (!PUBLISHABLE_KEY) {
-	throw new Error('Missing Publishable Key');
+	throw new Error('Missing Publishable Key')
 }
 
+const convex = new ConvexReactClient(import.meta.env.VITE_CONVEX_URL as string)
+
 function ClerkAppearanceWrapper({ children }: { children: React.ReactNode }) {
-	const { theme } = useTheme();
+	const { theme } = useTheme()
 
 	return (
 		<ClerkProvider
@@ -26,17 +30,19 @@ function ClerkAppearanceWrapper({ children }: { children: React.ReactNode }) {
 		>
 			{children}
 		</ClerkProvider>
-	);
+	)
 }
 
 createRoot(document.getElementById('root')!).render(
-	<ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
+	<ThemeProvider defaultTheme='dark' storageKey='vite-ui-theme'>
 		<BrowserRouter>
 			<StrictMode>
 				<ClerkAppearanceWrapper>
-					<App />
+					<ConvexProviderWithClerk client={convex} useAuth={useAuth}>
+						<App />
+					</ConvexProviderWithClerk>
 				</ClerkAppearanceWrapper>
 			</StrictMode>
 		</BrowserRouter>
 	</ThemeProvider>
-);
+)
