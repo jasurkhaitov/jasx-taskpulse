@@ -5,19 +5,10 @@ import { LuContact } from 'react-icons/lu'
 import {
 	SignedIn,
 	SignedOut,
-	UserButton,
-	SignIn,
-	SignUp,
+	UserButton
 } from '@clerk/clerk-react'
 import { FaRegUser } from 'react-icons/fa'
 import { styleUI } from '@/util/data'
-
-import {
-	AlertDialog,
-	AlertDialogContent,
-	AlertDialogTrigger,
-	AlertDialogCancel, // Import the cancel component
-} from '@/components/ui/alert-dialog'
 
 export default function Navbar() {
 	return (
@@ -51,47 +42,22 @@ export default function Navbar() {
 					</a>
 
 					<SignedOut>
-						<AlertDialog>
-							<AlertDialogTrigger>
-								<button
-									className={`text-sm hidden sm:block font-space font-medium text-black dark:text-white`}
-								>
-									Login
-								</button>
-							</AlertDialogTrigger>
-
-							<AlertDialogContent>
-								<div className='flex justify-end'>
-									<AlertDialogCancel className='text-gray-500 hover:text-gray-700 dark:text-gray-300 dark:hover:text-gray-500'>
-										&times;
-									</AlertDialogCancel>
-								</div>
-								<SignIn />
-							</AlertDialogContent>
-						</AlertDialog>
+						<Link
+							to={'/sign-in'}
+							className={`text-sm hidden sm:block font-space font-medium text-black dark:text-white`}
+						>
+							Login
+						</Link>
 					</SignedOut>
 
 					<SignedOut>
-						<AlertDialog>
-							<AlertDialogTrigger>
-								<button className={`${styleUI.gradientButton}`}>
-									<FaRegUser className='text-sm	text-white' />
+						<Link to={'/register'} className={`${styleUI.gradientButton}`}>
+							<FaRegUser className='text-sm	text-white' />
 
-									<span className='text-sm font-space font-medium text-white'>
-										Sign Up
-									</span>
-								</button>
-							</AlertDialogTrigger>
-
-							<AlertDialogContent>
-								<div className='flex justify-end'>
-									<AlertDialogCancel className='text-gray-500 hover:text-gray-700 dark:text-gray-300 dark:hover:text-gray-500'>
-										&times;
-									</AlertDialogCancel>
-								</div>
-								<SignUp />
-							</AlertDialogContent>
-						</AlertDialog>
+							<span className='text-sm font-space font-medium text-white'>
+								Sign Up
+							</span>
+						</Link>
 					</SignedOut>
 
 					<SignedIn>

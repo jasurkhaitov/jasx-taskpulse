@@ -8,8 +8,8 @@
 
 @layer base {
 	:root {
-		--background: 0 0% 98%;
-		--foreground: 0 0% 10%;
+		--background: 0 0% 100%;
+		--foreground: 222.2 84% 4.9%;
 		--card: 0 0% 100%;
 		--card-foreground: 222.2 84% 4.9%;
 		--popover: 0 0% 100%;
@@ -34,10 +34,9 @@
 		--chart-5: 27 87% 67%;
 		--radius: 0.5rem;
 	}
-
 	.dark {
-		--background: 220 13% 10%;
-		--foreground: 0 0% 98%;
+		--background: 222.2 84% 4.9%;
+		--foreground: 210 40% 98%;
 		--card: 222.2 84% 4.9%;
 		--card-foreground: 210 40% 98%;
 		--popover: 222.2 84% 4.9%;
@@ -67,7 +66,7 @@
 	* {
 		@apply border-border;
 	}
-	body {
+	html, body {
 		@apply bg-background text-foreground;
 	}
 }
@@ -95,4 +94,20 @@ a {
 
 ::-webkit-scrollbar-thumb {
 	@apply rounded-[10px] dark:bg-blue-500 bg-blue-700;
+}
+
+.cl-internal-i2i1cv {
+	@apply px-7 py-5
+}
+
+.cl-internal-i2i1cv {
+	@apply gap-4
+}
+
+.cl-internal-qo3qk7 {
+	@apply gap-4
+}
+
+.cl-internal-w8uam1 {
+	@apply gap-3
 }

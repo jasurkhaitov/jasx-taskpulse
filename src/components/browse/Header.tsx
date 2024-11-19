@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import HeaderImage from '../../assets/web/header-image.webp'
-import { SignedIn, SignedOut, SignInButton } from '@clerk/clerk-react'
+import { SignedIn, SignedOut } from '@clerk/clerk-react'
 
 export default function Header() {
 	return (
@@ -25,11 +25,9 @@ export default function Header() {
 
 					<div className='flex items-center'>
 						<SignedOut>
-							<SignInButton>
-								<button className={`py-[9px] px-5 rounded-sm text-md font-semibold text-white flex items-center justify-center gap-2 bg-gradient-to-r from-blue-500 to-pink-500 active:scale-95`} >
-									Get Started
-								</button>
-							</SignInButton>
+							<Link to={'/sign-in'} className={`py-[9px] px-5 rounded-sm text-md font-semibold text-white flex items-center justify-center gap-2 bg-gradient-to-r from-blue-500 to-pink-500 active:scale-95`} >
+								Get Started
+							</Link>
 						</SignedOut>
 
 						<SignedIn>

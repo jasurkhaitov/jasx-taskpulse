@@ -1,25 +1,42 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import { BrowserRouter } from 'react-router-dom'
-import { ThemeProvider } from './components/providers/theme-provider.tsx'
-import App from './App.tsx'
-import './index.css'
-import { ClerkProvider } from '@clerk/clerk-react'
+import { StrictMode } from 'react';
+import { createRoot } from 'react-dom/client';
+import { BrowserRouter } from 'react-router-dom';
+import { ThemeProvider, useTheme } from './components/providers/theme-provider';
+import { shadesOfPurple } from '@clerk/themes';
+import App from './App.tsx';
+import './index.css';
+import { ClerkProvider } from '@clerk/clerk-react';
 
-const PUBLISHABLE_KEY = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY
+const PUBLISHABLE_KEY = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY;
 
 if (!PUBLISHABLE_KEY) {
-	throw new Error('Missing Publishable Key')
+	throw new Error('Missing Publishable Key');
+}
+
+function ClerkAppearanceWrapper({ children }: { children: React.ReactNode }) {
+	const { theme } = useTheme();
+
+	return (
+		<ClerkProvider
+			appearance={{
+				baseTheme: theme === 'dark' ? shadesOfPurple : undefined,
+			}}
+			publishableKey={PUBLISHABLE_KEY}
+			afterSignOutUrl={'/'}
+		>
+			{children}
+		</ClerkProvider>
+	);
 }
 
 createRoot(document.getElementById('root')!).render(
-	<ThemeProvider defaultTheme='dark' storageKey='vite-ui-theme'>
+	<ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
 		<BrowserRouter>
 			<StrictMode>
-				<ClerkProvider publishableKey={PUBLISHABLE_KEY} afterSignOutUrl={'/'}>
+				<ClerkAppearanceWrapper>
 					<App />
-				</ClerkProvider>
+				</ClerkAppearanceWrapper>
 			</StrictMode>
 		</BrowserRouter>
 	</ThemeProvider>
-)
+);

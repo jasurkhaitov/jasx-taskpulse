@@ -49,7 +49,7 @@ export function TabsDemo() {
 	]
 
 	return (
-		<div className='h-[20rem] md:h-[40rem] [perspective:1000px] relative flex flex-col max-w-[1150px] mx-auto w-full items-start justify-start px-[15px] my-20 mb-[130px]'>
+		<div className='h-[30rem] md:h-[40rem] [perspective:1000px] relative flex flex-col max-w-[1150px] mx-auto w-full items-start justify-start px-[15px] my-20 mb-[130px]'>
 			<Tabs tabs={tabs} />
 		</div>
 	)
@@ -66,7 +66,7 @@ const DummyContent: React.FC<DummyContentProps> = ({ src, alt }) => {
 			loading='lazy'
 			src={src}
 			alt={alt}
-			className='object-cover object-left-top h-[60%] md:h-[90%] absolute -bottom-10 inset-x-0 w-[90%] rounded-xl mx-auto'
+			className='object-cover object-left-top h-[90%] absolute -bottom-10 inset-x-0 w-[90%] rounded-xl mx-auto'
 		/>
 	)
 }
