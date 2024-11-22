@@ -22,6 +22,12 @@
         "listitem": "off",
         "list": "off"
       }
+    ],
+    "axe/aria": [
+      "default",
+      {
+        "aria-command-name": "off"
+      }
     ]
   }
 }

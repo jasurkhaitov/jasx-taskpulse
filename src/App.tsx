@@ -1,10 +1,10 @@
 import { Route, Routes } from 'react-router-dom'
 import Browse from './pages/Browse'
 import NotFound from './pages/NotFound'
-import Document from './components/Document'
 import { useState } from 'react'
 import { MyGlobalContext } from './hooks/useContext'
 import PrivateRoute from './routes/Outlet'
+import HomePage from './pages/HomePage'
 
 function App() {
 	const [user, setUser] = useState(false)
@@ -16,7 +16,7 @@ function App() {
 				<Route path='*' element={<NotFound />} />
 
 				<Route path='/documents' element={<PrivateRoute />}>
-					<Route path='/documents' element={<Document />} />
+					<Route path='/documents' element={<HomePage />} />
 				</Route>
 			</Routes>
 		</MyGlobalContext.Provider>

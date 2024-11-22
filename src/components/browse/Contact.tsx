@@ -4,8 +4,13 @@ import TextTicker from '../ui/text-picker';
 import { contactLink } from '@/util/icon';
 import FormRequest from './FormRequest';
 import { Meteors } from '../ui/meteors';
+import { useConvexAuth } from 'convex/react'
+import { FaSpinner } from 'react-icons/fa'
 
 export default function Contact() {
+
+	const { isAuthenticated, isLoading } = useConvexAuth()
+
   return (
     <main className="font-roboto max-w-[1350px] relative mx-auto overflow-hidden">
 
@@ -44,8 +49,14 @@ export default function Contact() {
             </ul>
           </div>
 
-          <div className="w-full md:w-1/2">
-            <FormRequest />
+          <div className="w-full md:w-1/2 flex items-center justify-center">
+            {isLoading && (
+              <FaSpinner className='animate-spin text-blue-500 text-xl' />
+              )}
+
+						{isAuthenticated && !isLoading && (
+              <FormRequest />
+						)}
           </div>
         </div>
       </div>

@@ -51,6 +51,9 @@ export default {
 					'4': 'hsl(var(--chart-4))',
 					'5': 'hsl(var(--chart-5))',
 				},
+
+				bgLightBox: '#fff',
+				bgDarkBox: '#0d1126',
 			},
 
 			fontFamily: {

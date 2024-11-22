@@ -15,8 +15,6 @@ if (!PUBLISHABLE_KEY) {
 	throw new Error('Missing Publishable Key')
 }
 
-// const convex = new ConvexReactClient(import.meta.env.VITE_CONVEX_URL as string)
-
 const deploymentURL = import.meta.env.VITE_CONVEX_URL;
 
 const convex = new ConvexReactClient(deploymentURL);
