@@ -26,7 +26,8 @@
     "axe/aria": [
       "default",
       {
-        "aria-command-name": "off"
+        "aria-command-name": "off",
+        "aria-required-parent": "off"
       }
     ]
   }

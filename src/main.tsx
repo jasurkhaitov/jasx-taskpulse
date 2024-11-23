@@ -37,7 +37,7 @@ function ClerkAppearanceWrapper({ children }: { children: React.ReactNode }) {
 
 createRoot(document.getElementById('root')!).render(
 	<ThemeProvider defaultTheme='dark' storageKey='vite-ui-theme'>
-		<BrowserRouter>
+		<BrowserRouter future={{ v7_startTransition: true }}>
 			<StrictMode>
 				<ClerkAppearanceWrapper>
 					<ConvexProviderWithClerk client={convex} useAuth={useAuth}>

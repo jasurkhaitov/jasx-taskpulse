@@ -21,22 +21,22 @@ export default function FormRequest() {
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
-
+  
     if (telegramBotAPI.disableForm) return;
-
+  
     setIsSending(true);
     setButtonText('Sending...');
     setButtonColor('bg-indigo-500 text-white');
     setButtonIcon(<FaSpinner className="animate-spin text-white text-md" />);
-
+  
     const newDate = new Date();
-
+  
     const createdAt = user?.createdAt ? cleanDateString(user.createdAt.toString()) : 'N/A';
     const updatedAt = user?.updatedAt ? cleanDateString(user.updatedAt.toString()) : 'N/A';
     const sendedAt = newDate ? cleanDateString(newDate.toString()) : 'N/A';
-
-    const message = `New Form Submission 💬 \n\nFull Name: ${user?.fullName ?? ''} \n\nForm Name: ${name} \n\nMessage: ${recommendation} \n\nEmail: ${user?.primaryEmailAddress?.emailAddress ?? ''} \n\nCreated at: ${createdAt} \n\nEntered at: ${updatedAt} \n\nSend: ${sendedAt}`;
-
+  
+    const message = `<b>New Form Submission 💬</b> \n\n<b>Full Name:</b> ${user?.fullName ?? ''} \n\n<b>Form Name:</b> ${name} \n\n<b>Message:</b> ${recommendation} \n\n<b>Email:</b> ${user?.primaryEmailAddress?.emailAddress ?? ''} \n\n<b>Created at:</b> ${createdAt} \n\n<b>Entered at:</b> ${updatedAt} \n\n<b>Send:</b> ${sendedAt}`;
+  
     try {
       const responseMessage = await fetch(`https://api.telegram.org/bot${telegramBotAPI.botToken}/sendPhoto`, {
         method: 'POST',
@@ -46,16 +46,17 @@ export default function FormRequest() {
         body: JSON.stringify({
           chat_id: telegramBotAPI.chatId,
           caption: message,
+          parse_mode: 'html',
           photo: user?.imageUrl,
         }),
       });
-
+  
       if (responseMessage.ok) {
         console.log('Message and photo sent to Telegram successfully!');
         setButtonText('Done');
         setButtonColor('bg-green-700 text-white');
         setButtonIcon(<FaCheck className="text-white text-md" />);
-
+  
         setName('');
         setRecommendation('');
       } else {
@@ -71,7 +72,7 @@ export default function FormRequest() {
       setButtonIcon(<FaTimes className="text-white text-md" />);
     } finally {
       setIsSending(false);
-
+  
       setTimeout(() => {
         setButtonText('Submit');
         setButtonColor('bg-indigo-500 text-white');
@@ -82,7 +83,7 @@ export default function FormRequest() {
 
   return (
     <div className="w-full max-w-lg mx-auto bg-transparent">
-      <h2 className="text-2md font-semibold text-gray-900 dark:text-white mb-6">Contact Us</h2>
+      <h2 className="text-2xl font-semibold mb-6 text-gray-900 dark:text-white">Contact Us</h2>
       <form onSubmit={handleSubmit}>
         <input
           type="text"

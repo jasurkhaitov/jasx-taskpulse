@@ -4,11 +4,12 @@ import { SidebarProvider, SidebarTrigger } from '@/components/ui/sidebar'
 import { useUser } from '@clerk/clerk-react'
 import { useEffect } from 'react'
 
-export default function HomePage() {
+export default function HabitTrackerPage() {
+
 	const {user} = useUser()
 
 	useEffect(() => {
-		document.title = `${user?.firstName}'s TaskPulse - Home`
+		document.title = `${user?.firstName}'s TaskPulse - Habit Tracker`
 	}, [])
 
 	return (
@@ -17,7 +18,7 @@ export default function HomePage() {
 				<ProjectSidebar />
 				<main className='flex-1 overflow-y-auto p-2'>
 					<SidebarTrigger />
-					<Home  title={'Home'}/>
+					<Home title={'Habit Tracker'}/>
 				</main>
 			</div>
 		</SidebarProvider>

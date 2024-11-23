@@ -1,109 +1,175 @@
 import { cn } from '@/lib/utils'
-import { ChevronsLeft, MenuIcon } from 'lucide-react'
-import { ElementRef, useEffect, useRef, useState } from 'react'
-import useMediaQuery from '@mui/material/useMediaQuery';
+import Logo from '../../assets/svg/logoIcon.svg'
+import {
+	Sidebar,
+	SidebarContent,
+	SidebarFooter,
+	SidebarGroupLabel,
+	SidebarHeader,
+	SidebarMenu,
+	SidebarMenuBadge,
+	SidebarMenuButton,
+	SidebarMenuItem,
+} from '@/components/ui/sidebar'
+import { Link, useLocation } from 'react-router-dom'
+import { CommandDialogDemo } from './SearchCommand'
 
-const Sidebar = () => {
-	const sidebarRef = useRef<ElementRef<'div'>>(null)
-	const navbarRef = useRef<ElementRef<'div'>>(null)
-	const isResizing = useRef(false)
+import { LuHome } from 'react-icons/lu'
+import { FaListUl } from 'react-icons/fa'
+import { BsJournalRichtext } from 'react-icons/bs'
+import { BiMoneyWithdraw } from 'react-icons/bi'
+import { MdDoneAll } from 'react-icons/md'
+import { RiBookMarkedLine } from 'react-icons/ri'
+import { GoProjectRoadmap } from 'react-icons/go'
 
-	const isMobile = useMediaQuery("(max-width:800px)")
+import { SettingsCommand } from './SettingsCommand'
+import { HelpSupport } from './HelpSupport'
+import { useUser } from '@clerk/clerk-react'
 
-	const [isCollapsed, setIsCollapsed] = useState(false)
-	const [isResetting, setIsResetting] = useState(false)
+export function ProjectSidebar() {
+	const location = useLocation()
+	const pathname = location.pathname
 
-	useEffect(() => {
-		if(isMobile) {
-			collapse()
-		} else {
-			reset()
-		}
-	}, [isMobile])
-
-	const collapse = () => {
-		if (sidebarRef.current && navbarRef.current) {
-			setIsCollapsed(true)
-			setIsResetting(true)
-
-			sidebarRef.current.style.width = '0'
-			navbarRef.current.style.width = "100%"
-			navbarRef.current.style.left = "0"
-			setTimeout(() => setIsResetting(false), 300);
-		}
-	}
-
-	const reset = () => {
-		if (sidebarRef.current && navbarRef.current) {
-			setIsCollapsed(false)
-			setIsResetting(true)
-
-			sidebarRef.current.style.width = '240px'
-			navbarRef.current.style.width = "calc(100%-240px)"
-			navbarRef.current.style.left = "240px"
-			setTimeout(() => setIsResetting(false), 300);
-		}
-	}
-
-	const handleMouseDown = (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
-		event.preventDefault()
-		event.stopPropagation()
-
-		isResizing.current= true
-		document.addEventListener('mousemove', handleMouseMove)
-		document.addEventListener('mouseup', handleMouseUp)
-	}
-
-	const handleMouseMove = (event: MouseEvent) => {
-    if (!isResizing.current) return;
-
-    let newWidth = event.clientX;
-
-    if (newWidth < 240) newWidth = 240;
-    if (newWidth > 400) newWidth = 400;
-
-    if (sidebarRef.current && navbarRef.current) {
-      sidebarRef.current.style.width = `${newWidth}px`;
-      navbarRef.current.style.left = `${newWidth}px`;
-      navbarRef.current.style.width = `calc(100% - ${newWidth}px)`;
-    }
-  };
-
-  const handleMouseUp = () => {
-    isResizing.current = false;
-    document.removeEventListener("mousemove", handleMouseMove);
-    document.removeEventListener("mouseup", handleMouseUp);
-  };
+	const { user } = useUser()
 
 	return (
-		<>
-			<div
-				className={cn(
-          "group/sidebar h-screen bg-secondary overflow-y-auto flex w-60 flex-col z-50 sticky left-0 top-0",
-          isResetting && "transition-all ease-in duration-300"
-        )}
-				ref={sidebarRef}
-			>
-				<div
-					className='h-7 w-7 flex items-center justify-center text-muted-foreground rounded-sm hover:bg-gray-240 dark:hover:bg-gray-800 absolute top-3 right-2 cursor-pointer group-hover/sidebar:opacity-100 opacity-0 transition'
-					role='button'
-					onClick={collapse}
+		<Sidebar className='border-r'>
+			<SidebarHeader className='py-4'>
+				<Link
+					to='/documents'
+					className='flex mb-4 px-10 items-center gap-0 sm:gap-2 text-gray-900 dark:text-white'
 				>
-					<ChevronsLeft className='h-7 w-7' />
-				</div>
+					<img
+						loading='lazy'
+						className='w-7'
+						src={Logo}
+						alt='Icon of JasX Brand'
+					/>
 
-				<div className='group-hover/sidebar:opacity-100 absolute right-0 top-0 w-1 h-full cursor-ew-resize bg-primary/10 opacity-0 transition' onMouseDown={handleMouseDown}/>
-			</div>
+					<span className='text-xl hidden sm:block font-space font-bold'>
+						JasX
+					</span>
+				</Link>
 
-			<div className={cn("absoluten top-0 z-50 left-60 w-[calc(100% - 240px)]", isResetting && 'transition-all ease-in duration-240')} ref={navbarRef}>
-				<nav className='bg-transparent px-3 py-3 w-full'>
-					{
-						isCollapsed && <MenuIcon className='w-6 h-6 text-muted-foreground' role='button' onClick={reset}/>
-					}
-				</nav>
-			</div>
-		</>
+				<SidebarMenu>
+					<SidebarMenuItem>
+						<SidebarMenuButton asChild>
+							<Link
+								to='/documents'
+								className={cn(pathname === '/documents' && 'bg-background')}
+							>
+								<LuHome className='mr-1 h-4 w-4' />
+								Home
+								<SidebarMenuBadge>6</SidebarMenuBadge>
+							</Link>
+						</SidebarMenuButton>
+					</SidebarMenuItem>
+
+					<CommandDialogDemo />
+				</SidebarMenu>
+			</SidebarHeader>
+
+			<SidebarContent className='px-2 mt-2'>
+				<SidebarGroupLabel className='px-5'>Projects</SidebarGroupLabel>
+
+				<SidebarMenu>
+					<SidebarMenuItem>
+						<SidebarMenuButton asChild>
+							<Link
+								to='/documents/weekly-to-do-list'
+								className={cn(
+									pathname === '/documents/weekly-to-do-list' && 'bg-background'
+								)}
+							>
+								<FaListUl className='mr-1 h-4 w-4' />
+								Weekly To-do List
+							</Link>
+						</SidebarMenuButton>
+					</SidebarMenuItem>
+
+					<SidebarMenuItem>
+						<SidebarMenuButton asChild>
+							<Link
+								to='/documents/journal'
+								className={cn(pathname === '/documents/journal' && 'bg-background')}
+							>
+								<BsJournalRichtext className='mr-1 h-4 w-4' />
+								Journal
+							</Link>
+						</SidebarMenuButton>
+					</SidebarMenuItem>
+
+					<SidebarMenuItem>
+						<SidebarMenuButton asChild>
+							<Link
+								to='/documents/monthly-budget'
+								className={cn(pathname === '/documents/monthly-budget' && 'bg-background')}
+							>
+								<BiMoneyWithdraw className='mr-1 h-5 w-6 text-xl' />
+								Monthly Budget
+							</Link>
+						</SidebarMenuButton>
+					</SidebarMenuItem>
+
+					<SidebarMenuItem>
+						<SidebarMenuButton asChild>
+							<Link
+								to='/documents/habit-tracker'
+								className={cn(pathname === '/documents/habit-tracker' && 'bg-background')}
+							>
+								<MdDoneAll className='mr-1 h-4 w-4' />
+								Habit Tracker
+							</Link>
+						</SidebarMenuButton>
+					</SidebarMenuItem>
+
+					<SidebarMenuItem>
+						<SidebarMenuButton asChild>
+							<Link
+								to='/documents/reading-list'
+								className={cn(pathname === '/documents/reading-list' && 'bg-background')}
+							>
+								<RiBookMarkedLine className='mr-1 h-4 w-4' />
+								Reading List
+							</Link>
+						</SidebarMenuButton>
+					</SidebarMenuItem>
+
+					<SidebarMenuItem>
+						<SidebarMenuButton asChild>
+							<Link
+								to='/documents/project-planner'
+								className={cn(pathname === '/documents/project-planner' && 'bg-background')}
+							>
+								<GoProjectRoadmap className='mr-1 h-4 w-4' />
+								Project Planner
+							</Link>
+						</SidebarMenuButton>
+					</SidebarMenuItem>
+				</SidebarMenu>
+			</SidebarContent>
+
+			<SidebarFooter className='p-2'>
+				<SidebarMenu>
+					<SidebarMenuItem>
+						<SettingsCommand />
+					</SidebarMenuItem>
+
+					<SidebarMenuItem>
+						<HelpSupport />
+					</SidebarMenuItem>
+
+						<Link className={cn('flex items-center justify-start gap-3 cursor-pointer mt-2 pb-2 px-3 pt-4 border-t border-gray-400 dark:border-gray-700')} to={'/documents/profile'}>
+							<img loading='lazy' className='w-10 h-auto rounded-md' src={user?.imageUrl} alt={`${user?.fullName}`}/>
+
+							<div>
+								<p className='text-blue-500 text-[14px]'>{user?.primaryEmailAddress?.emailAddress}</p>
+
+								<p className='text-[12px]'>{user?.fullName}</p>
+							</div>
+						</Link>
+				</SidebarMenu>
+			</SidebarFooter>
+		</Sidebar>
 	)
 }
-
-export default Sidebar;

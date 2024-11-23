@@ -3,7 +3,7 @@ import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import Navbar from '@/components/browse/Navbar'
 
-export default function NotFound() {
+export default function NotFoundPage() {
 	useEffect(() => {
 		document.title = "The page you're looking for doesn't exist"
 	}, [])

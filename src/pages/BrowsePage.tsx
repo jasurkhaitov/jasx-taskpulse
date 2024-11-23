@@ -6,7 +6,7 @@ import Header from '@/components/browse/Header'
 import Navbar from '@/components/browse/Navbar'
 import { useEffect } from 'react'
 
-export default function Browse() {
+export default function BrowsePage() {
 
 	useEffect(() => {
 		document.title = 'TaskPulse | One app to replace them all'

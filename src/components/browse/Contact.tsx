@@ -2,9 +2,8 @@ import { Link } from 'react-router-dom';
 import Logo from '../../assets/svg/logoIcon.svg';
 import TextTicker from '../ui/text-picker';
 import { contactLink } from '@/util/icon';
-import FormRequest from './FormRequest';
-import { Meteors } from '../ui/meteors';
 import { useConvexAuth } from 'convex/react'
+import FormRequest from '../shared/FormRequest'
 import { FaSpinner } from 'react-icons/fa'
 
 export default function Contact() {
@@ -50,9 +49,7 @@ export default function Contact() {
           </div>
 
           <div className="w-full md:w-1/2 flex items-center justify-center">
-            {isLoading && (
-              <FaSpinner className='animate-spin text-blue-500 text-xl' />
-              )}
+            {isLoading && <FaSpinner className='animate-spin text-blue-500 text-3xl'/>}
 
 						{isAuthenticated && !isLoading && (
               <FormRequest />
@@ -60,8 +57,6 @@ export default function Contact() {
           </div>
         </div>
       </div>
-
-      <Meteors number={100} />
     </main>
   );
 }

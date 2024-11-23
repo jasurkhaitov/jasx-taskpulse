@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 import HeaderImage from '../../assets/web/header-image.webp'
 import { SignInButton } from '@clerk/clerk-react'
 import { useConvexAuth } from 'convex/react'
-import { FaSpinner } from 'react-icons/fa'
+import { Skeleton } from '../ui/skeleton'
 
 export default function Header() {
 	const { isAuthenticated, isLoading } = useConvexAuth()
@@ -44,7 +44,7 @@ export default function Header() {
 						)}
 
 						{isLoading && (
-							<FaSpinner className='animate-spin text-blue-500 text-xl' />
+							<Skeleton className={`w-[130px] h-10 rounded-sm`} />
 						)}
 
 						{isAuthenticated && !isLoading && (
