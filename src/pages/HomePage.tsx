@@ -1,11 +1,11 @@
 import Home from '@/components/home/Home'
 import { ProjectSidebar } from '@/components/shared/Sidebar'
-import { SidebarProvider, SidebarTrigger } from '@/components/ui/sidebar'
+import { SidebarProvider } from '@/components/ui/sidebar'
 import { useUser } from '@clerk/clerk-react'
 import { useEffect } from 'react'
 
 export default function HomePage() {
-	const {user} = useUser()
+	const { user } = useUser()
 
 	useEffect(() => {
 		document.title = `${user?.firstName}'s TaskPulse - Home`
@@ -13,11 +13,11 @@ export default function HomePage() {
 
 	return (
 		<SidebarProvider>
-			<div className='flex h-screen'>
-				<ProjectSidebar />
-				<main className='flex-1 overflow-y-auto p-2'>
-					<SidebarTrigger />
-					<Home  title={'Home'}/>
+			<div className='flex h-screen w-full'>
+				<ProjectSidebar/>
+
+				<main className='flex-1 h-full overflow-y-auto'>
+					<Home title={'Home'} />
 				</main>
 			</div>
 		</SidebarProvider>

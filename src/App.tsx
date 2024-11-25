@@ -12,6 +12,7 @@ import HabitTrackerPage from './pages/HabitTrackerPage'
 import BudgetPage from './pages/BudgetPage'
 import JournalPage from './pages/JournalPage'
 import WeeklyToDoPage from './pages/WeeklyToDoPage'
+import AboutPage from './pages/AboutPage'
 
 function App() {
 	const [user, setUser] = useState(false)
@@ -29,8 +30,10 @@ function App() {
 					<Route path='/documents/journal' element={<JournalPage />} />
 					<Route path='/documents/monthly-budget' element={<BudgetPage />} />
 					<Route path='/documents/habit-tracker' element={<HabitTrackerPage />} />
-					<Route path='/documents/reading-list' element={<ReadingPage />} />
+					<Route path='/documents/reading-book' element={<ReadingPage />} />
 					<Route path='/documents/project-planner' element={<ProjectPlannerPage />} />
+
+					<Route path='/documents/about' element={<AboutPage />} />
 					
 					<Route path='/documents/profile' element={<ProfilePage />} />
 				</Route>

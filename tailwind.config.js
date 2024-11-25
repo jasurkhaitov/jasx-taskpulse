@@ -93,7 +93,7 @@ export default {
     		animation: {
     			'logo-cloud': 'logo-cloud 30s linear infinite',
     			'meteor-effect': 'meteor 5s linear infinite'
-    		}
+    		},
     	}
     },
 	plugins: [require('tailwindcss-animate')],
