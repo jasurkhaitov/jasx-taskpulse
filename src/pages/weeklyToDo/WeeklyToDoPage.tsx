@@ -1,15 +1,14 @@
 import Home from '@/components/home/Home'
-import { ProjectSidebar } from '@/components/shared/Sidebar'
+import { ProjectSidebar } from '@/components/sidebar/Sidebar'
 import { SidebarProvider, SidebarTrigger } from '@/components/ui/sidebar'
 import { useUser } from '@clerk/clerk-react'
 import { useEffect } from 'react'
 
-export default function JournalPage() {
-
-	const {user} = useUser()
+export default function WeeklyToDoPage() {
+	const { user } = useUser()
 
 	useEffect(() => {
-		document.title = `${user?.firstName}'s TaskPulse - Journal`
+		document.title = `${user?.firstName}'s TaskPulse - Weekly To Do List`
 	}, [])
 
 	return (
@@ -18,7 +17,7 @@ export default function JournalPage() {
 				<ProjectSidebar />
 				<main className='flex-1 overflow-y-auto p-2'>
 					<SidebarTrigger />
-					<Home title={'Journal Page'}/>
+					<Home title={'Weekly To Do App'} />
 				</main>
 			</div>
 		</SidebarProvider>

@@ -1,15 +1,14 @@
 import Home from '@/components/home/Home'
-import { ProjectSidebar } from '@/components/shared/Sidebar'
+import { ProjectSidebar } from '@/components/sidebar/Sidebar'
 import { SidebarProvider, SidebarTrigger } from '@/components/ui/sidebar'
 import { useUser } from '@clerk/clerk-react'
 import { useEffect } from 'react'
 
-export default function BudgetPage() {
-
-	const {user} = useUser()
+export default function JournalPage() {
+	const { user } = useUser()
 
 	useEffect(() => {
-		document.title = `${user?.firstName}'s TaskPulse - Monthly Budget`
+		document.title = `${user?.firstName}'s TaskPulse - Journal`
 	}, [])
 
 	return (
@@ -18,7 +17,7 @@ export default function BudgetPage() {
 				<ProjectSidebar />
 				<main className='flex-1 overflow-y-auto p-2'>
 					<SidebarTrigger />
-					<Home title={'Monthly Budget'}/>
+					<Home title={'Journal Page'} />
 				</main>
 			</div>
 		</SidebarProvider>

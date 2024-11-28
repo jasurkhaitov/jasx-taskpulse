@@ -1,15 +1,14 @@
 import Home from '@/components/home/Home'
-import { ProjectSidebar } from '@/components/shared/Sidebar'
+import { ProjectSidebar } from '@/components/sidebar/Sidebar'
 import { SidebarProvider, SidebarTrigger } from '@/components/ui/sidebar'
 import { useUser } from '@clerk/clerk-react'
 import { useEffect } from 'react'
 
-export default function ReadingPage() {
-
-	const {user} = useUser()
+export default function HabitTrackerPage() {
+	const { user } = useUser()
 
 	useEffect(() => {
-		document.title = `${user?.firstName}'s TaskPulse - Reading List`
+		document.title = `${user?.firstName}'s TaskPulse - Habit Tracker`
 	}, [])
 
 	return (
@@ -18,7 +17,7 @@ export default function ReadingPage() {
 				<ProjectSidebar />
 				<main className='flex-1 overflow-y-auto p-2'>
 					<SidebarTrigger />
-					<Home  title={'Reading List'}/>
+					<Home title={'Habit Tracker'} />
 				</main>
 			</div>
 		</SidebarProvider>

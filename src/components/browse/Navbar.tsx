@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 import { ModeToggle } from '../providers/mode-toggle'
 import Logo from '../../assets/svg/logoIcon.svg'
 import { LuContact } from 'react-icons/lu'
-import { SignInButton, SignUpButton, UserButton } from '@clerk/clerk-react'
+import { UserButton } from '@clerk/clerk-react'
 import { FaRegUser, FaSpinner } from 'react-icons/fa'
 import { styleUI } from '@/util/data'
 import { useConvexAuth } from 'convex/react'
@@ -42,23 +42,19 @@ export default function Navbar() {
 
 					{!isAuthenticated && !isLoading && (
 						<>
-							<SignInButton mode='modal'>
-								<button
+								<Link to={'/sign-in'}
 									className={`text-sm hidden sm:block font-space font-medium text-black dark:text-white`}
 								>
 									Login
-								</button>
-							</SignInButton>
+								</Link>
 
-							<SignUpButton mode='modal'>
-								<button className={`${styleUI.gradientButton}`}>
+								<Link to={'/sign-up'} className={`${styleUI.gradientButton}`}>
 									<FaRegUser className='text-sm	text-white' />
 
 									<span className='text-sm font-space font-medium text-white'>
 										Sign Up
 									</span>
-								</button>
-							</SignUpButton>
+								</Link>
 						</>
 					)}
 

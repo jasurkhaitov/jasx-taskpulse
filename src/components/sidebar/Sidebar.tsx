@@ -17,25 +17,31 @@ import { CommandDialogDemo } from './SearchCommand'
 import { LuHome } from 'react-icons/lu'
 import { FaListUl } from 'react-icons/fa'
 import { BsJournalRichtext } from 'react-icons/bs'
-import { BiMoneyWithdraw, BiSolidConversation } from 'react-icons/bi'
+import { BiMoneyWithdraw } from 'react-icons/bi'
 import { RiBookMarkedLine } from 'react-icons/ri'
-import { GoProjectRoadmap } from 'react-icons/go'
 
 import { SettingsCommand } from './SettingsCommand'
-import { HelpSupport } from './HelpSupport'
-import { useUser } from '@clerk/clerk-react'
+import { HelpSupport } from '../shared/HelpSupport'
+import CollapsibleSidebar from './CollapsibleSidebar'
+import { UserBox } from './UserBox'
 
 export function ProjectSidebar() {
 	const location = useLocation()
 	const pathname = location.pathname
 
-	const { user } = useUser()
-
 	return (
 		<Sidebar className='border-r'>
-			<SidebarHeader className='py-4'>
-				<Link to='/documents' className='flex mb-4 px-10 items-center gap-0 sm:gap-2 text-gray-900 dark:text-white'>
-					<img loading='lazy' className='w-7' src={Logo} alt='Icon of JasX Brand'/>
+			<SidebarHeader className='py-5'>
+				<Link
+					to='/'
+					className='flex mb-5 px-5 items-center gap-0 sm:gap-2 text-gray-900 dark:text-white'
+				>
+					<img
+						loading='lazy'
+						className='w-7'
+						src={Logo}
+						alt='Icon of JasX Brand'
+					/>
 
 					<span className='text-xl font-space font-bold'> JasX </span>
 				</Link>
@@ -43,7 +49,10 @@ export function ProjectSidebar() {
 				<SidebarMenu>
 					<SidebarMenuItem>
 						<SidebarMenuButton asChild>
-							<Link to='/documents' className={cn(pathname === '/documents' && 'bg-background')}>
+							<Link
+								to='/documents'
+								className={cn(pathname === '/documents' && 'bg-background')}
+							>
 								<LuHome className='mr-1 h-4 w-4' />
 								Home
 								<SidebarMenuBadge>6</SidebarMenuBadge>
@@ -61,8 +70,12 @@ export function ProjectSidebar() {
 				<SidebarMenu>
 					<SidebarMenuItem>
 						<SidebarMenuButton asChild>
-							<Link to='/documents/weekly-to-do-list' className={cn( pathname === '/documents/weekly-to-do-list' && 'bg-background')}
->
+							<Link
+								to='/documents/weekly-to-do-list'
+								className={cn(
+									pathname === '/documents/weekly-to-do-list' && 'bg-background'
+								)}
+							>
 								<FaListUl className='mr-1 h-4 w-4' />
 								Weekly To-do List
 							</Link>
@@ -71,7 +84,12 @@ export function ProjectSidebar() {
 
 					<SidebarMenuItem>
 						<SidebarMenuButton asChild>
-							<Link to='/documents/journal' className={cn( 	pathname === '/documents/journal' && 'bg-background' )}>
+							<Link
+								to='/documents/journal'
+								className={cn(
+									pathname === '/documents/journal' && 'bg-background'
+								)}
+							>
 								<BsJournalRichtext className='mr-1 h-4 w-4' />
 								Journal
 							</Link>
@@ -80,7 +98,12 @@ export function ProjectSidebar() {
 
 					<SidebarMenuItem>
 						<SidebarMenuButton asChild>
-							<Link to='/documents/monthly-budget' className={cn( 	pathname === '/documents/monthly-budget' && 'bg-background' )}>
+							<Link
+								to='/documents/monthly-budget'
+								className={cn(
+									pathname === '/documents/monthly-budget' && 'bg-background'
+								)}
+							>
 								<BiMoneyWithdraw className='mr-1 h-5 w-6 text-xl' />
 								Monthly Budget
 							</Link>
@@ -102,65 +125,24 @@ export function ProjectSidebar() {
 					</SidebarMenuItem>
 
 					<SidebarMenuItem>
-						<SidebarMenuButton asChild>
-							<Link
-								to='/documents/project-planner'
-								className={cn(
-									pathname === '/documents/project-planner' && 'bg-background'
-								)}
-							>
-								<GoProjectRoadmap className='mr-1 h-4 w-4' />
-								Project Planner
-							</Link>
-						</SidebarMenuButton>
+						<CollapsibleSidebar />
 					</SidebarMenuItem>
 				</SidebarMenu>
 			</SidebarContent>
 
-			<SidebarFooter className='p-2'>
+			<SidebarFooter className='px-2 py-5'>
 				<SidebarMenu>
 					<SidebarMenuItem>
 						<SettingsCommand />
 					</SidebarMenuItem>
 
 					<SidebarMenuItem>
-						<SidebarMenuButton asChild>
-							<Link to='/documents/about' className={cn( pathname === '/documents/about' && 'bg-background')}
->
-								<BiSolidConversation className='mr-1 h-4 w-4' />
-								About
-							</Link>
-						</SidebarMenuButton>
-					</SidebarMenuItem>
-
-					<SidebarMenuItem>
 						<HelpSupport />
 					</SidebarMenuItem>
 
-					<Link
-						className={cn(
-							'flex items-center justify-start gap-3 cursor-pointer mt-2 pb-2 px-3 pt-4 border-t border-gray-400 dark:border-gray-700'
-						)}
-						to={'/documents/profile'}
-					>
-						<img
-							loading='lazy'
-							className='w-10 h-auto rounded-md'
-							src={user?.imageUrl}
-							alt={`${user?.fullName}`}
-						/>
-
-						<div>
-							<p className='text-blue-500 text-[14px]'>
-								{user?.primaryEmailAddress?.emailAddress
-									&& user.primaryEmailAddress.emailAddress.length > 22
-										? `${user.primaryEmailAddress.emailAddress.slice(0, 20)}...`
-										: user?.primaryEmailAddress?.emailAddress}
-							</p>
-
-							<p className='text-[12px]'>{user?.fullName}</p>
-						</div>
-					</Link>
+					<div className='mt-2 border-t pt-2'>
+						<UserBox />
+					</div>
 				</SidebarMenu>
 			</SidebarFooter>
 		</Sidebar>

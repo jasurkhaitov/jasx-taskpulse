@@ -1,6 +1,5 @@
 import { Link } from 'react-router-dom'
 import HeaderImage from '../../assets/web/header-image.webp'
-import { SignInButton } from '@clerk/clerk-react'
 import { useConvexAuth } from 'convex/react'
 import { Skeleton } from '../ui/skeleton'
 
@@ -34,13 +33,11 @@ export default function Header() {
 
 					<div className='flex items-center gap-2'>
 						{!isAuthenticated && !isLoading && (
-							<SignInButton mode='modal'>
-								<button
+								<Link to={'/sign-in'}
 									className={`py-[9px] px-5 rounded-sm text-md font-semibold text-white flex items-center justify-center gap-2 bg-gradient-to-r from-blue-500 to-pink-500 active:scale-95`}
 								>
 									Get Started
-								</button>
-							</SignInButton>
+								</Link>
 						)}
 
 						{isLoading && (

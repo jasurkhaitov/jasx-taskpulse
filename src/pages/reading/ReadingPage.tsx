@@ -1,15 +1,14 @@
 import Home from '@/components/home/Home'
-import { ProjectSidebar } from '@/components/shared/Sidebar'
+import { ProjectSidebar } from '@/components/sidebar/Sidebar'
 import { SidebarProvider, SidebarTrigger } from '@/components/ui/sidebar'
 import { useUser } from '@clerk/clerk-react'
 import { useEffect } from 'react'
 
-export default function ProjectPlannerPage() {
-
-	const {user} = useUser()
+export default function ReadingPage() {
+	const { user } = useUser()
 
 	useEffect(() => {
-		document.title = `${user?.firstName}'s TaskPulse - Project Planner`
+		document.title = `${user?.firstName}'s TaskPulse - Reading List`
 	}, [])
 
 	return (
@@ -18,7 +17,7 @@ export default function ProjectPlannerPage() {
 				<ProjectSidebar />
 				<main className='flex-1 overflow-y-auto p-2'>
 					<SidebarTrigger />
-					<Home title={'Project Planner'} />
+					<Home title={'Reading List'} />
 				</main>
 			</div>
 		</SidebarProvider>
