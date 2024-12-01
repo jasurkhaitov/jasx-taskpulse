@@ -1,6 +1,6 @@
-import Home from '@/components/home/Home'
 import { ProjectSidebar } from '@/components/sidebar/Sidebar'
-import { SidebarProvider, SidebarTrigger } from '@/components/ui/sidebar'
+import { SidebarProvider } from '@/components/ui/sidebar'
+import WeeklyToDo from '@/components/weeklyToDoList/WeeklyToDo'
 import { useUser } from '@clerk/clerk-react'
 import { useEffect } from 'react'
 
@@ -13,11 +13,11 @@ export default function WeeklyToDoPage() {
 
 	return (
 		<SidebarProvider>
-			<div className='flex h-screen'>
+			<div className='flex h-screen w-full'>
 				<ProjectSidebar />
-				<main className='flex-1 overflow-y-auto p-2'>
-					<SidebarTrigger />
-					<Home title={'Weekly To Do App'} />
+
+				<main className='flex-1 h-full overflow-y-auto'>
+					<WeeklyToDo />
 				</main>
 			</div>
 		</SidebarProvider>

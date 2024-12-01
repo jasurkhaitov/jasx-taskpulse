@@ -53,7 +53,7 @@ export default function CollapsibleSidebar() {
 							<SidebarMenuSub>
 								{item.items.map(subItem => (
 									<SidebarMenuSubItem key={subItem.title}>
-										<SidebarMenuSubButton asChild className='px-4 py-1.5 text-sm hover:bg-background hover:text-white' >
+										<SidebarMenuSubButton asChild className='px-4 py-1.5 text-sm hover:bg-background' >
 											<Link to={subItem.url} className={cn(pathname === `${subItem.url}` ?  'bg-background text-white' : 'text-zinc-400')}>{subItem.title}</Link>
 										</SidebarMenuSubButton>
 									</SidebarMenuSubItem>

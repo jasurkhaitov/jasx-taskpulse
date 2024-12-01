@@ -5,11 +5,11 @@ import HomeWeeklyToDoList from './HomeWeeklyToDoList'
 import HomeProjectPlanner from './HomeProjectPlanner'
 import HomeReadingBook from './HomeReadingBook'
 
-export default function Home({ title }: { title: string }) {
+export default function Home() {
 	return (
-		<div className='space-y-5 p-5'>
+		<div className='space-y-3 px-5 py-3'>
 			<div className='flex items-center justify-between px-5'>
-				<h3 className='text-2xl font-bold'>{title}</h3>
+				<h3 className='text-xl font-bold'>Home</h3>
 
 				<SidebarTrigger />
 			</div>
@@ -18,15 +18,11 @@ export default function Home({ title }: { title: string }) {
 				<HomeMonthlyBudget />
 			</div>
 
-			<div className='w-full'>
+			<div className='grid grid-cols-2 items-stretch gap-3'>
 				<HomeProjectPlanner />
-			</div>
 
-			<div className='w-full'>
 				<HomeWeeklyToDoList />
-			</div>
-
-			<div className='grid grid-cols-2 items-stretch gap-5'>
+				
 				<HomeJournal />
 
 				<HomeReadingBook/>

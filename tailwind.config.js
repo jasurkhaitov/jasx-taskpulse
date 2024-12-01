@@ -50,7 +50,7 @@ export default {
     				'4': 'hsl(var(--chart-4))',
     				'5': 'hsl(var(--chart-5))'
     			},
-    			bgLightBox: '#f0f0f0',
+    			bgLightBox: '#fcfafa',
     			bgDarkBox: '#0d1126',
     			sidebar: {
     				DEFAULT: 'hsl(var(--sidebar-background))',

@@ -17,7 +17,7 @@ export default function HomePage() {
 				<ProjectSidebar />
 
 				<main className='flex-1 h-full overflow-y-auto'>
-					<Home title={'Home'} />
+					<Home />
 				</main>
 			</div>
 		</SidebarProvider>

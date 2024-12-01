@@ -1,4 +1,3 @@
-import Home from '@/components/home/Home'
 import { ProjectSidebar } from '@/components/sidebar/Sidebar'
 import { SidebarProvider, SidebarTrigger } from '@/components/ui/sidebar'
 import { useUser } from '@clerk/clerk-react'
@@ -17,7 +16,8 @@ export default function BudgetPage() {
 				<ProjectSidebar />
 				<main className='flex-1 overflow-y-auto p-2'>
 					<SidebarTrigger />
-					<Home title={'Monthly Budget'} />
+					
+					Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur ex perspiciatis libero similique perferendis quae molestiae, minima illum! Quasi eveniet sapiente exercitationem. Voluptatibus harum libero quibusdam nesciunt maxime repudiandae, iste provident, nobis beatae repellat perspiciatis quos animi laboriosam totam. Asperiores doloribus saepe nam id fugiat reprehenderit mollitia atque aperiam quaerat?
 				</main>
 			</div>
 		</SidebarProvider>

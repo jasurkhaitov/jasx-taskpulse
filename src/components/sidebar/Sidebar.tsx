@@ -83,6 +83,10 @@ export function ProjectSidebar() {
 					</SidebarMenuItem>
 
 					<SidebarMenuItem>
+						<CollapsibleSidebar />
+					</SidebarMenuItem>
+
+					<SidebarMenuItem>
 						<SidebarMenuButton asChild>
 							<Link
 								to='/documents/journal'
@@ -122,10 +126,6 @@ export function ProjectSidebar() {
 								Reading Book
 							</Link>
 						</SidebarMenuButton>
-					</SidebarMenuItem>
-
-					<SidebarMenuItem>
-						<CollapsibleSidebar />
 					</SidebarMenuItem>
 				</SidebarMenu>
 			</SidebarContent>

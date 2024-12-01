@@ -5,8 +5,7 @@ import { GoProjectRoadmap } from 'react-icons/go'
 import { RiBookMarkedLine } from 'react-icons/ri'
 
 export const styleUI = {
-	gradientButton:
-		'py-[7px] px-3 rounded-sm flex items-center justify-center gap-2 bg-gradient-to-r from-blue-500 to-pink-500 active:scale-95',
+	gradientButton: 'py-[7px] px-3 rounded-sm flex items-center justify-center gap-2 bg-gradient-to-r from-blue-500 to-pink-500 active:scale-95',
 }
 
 export const telegramBotAPI = {
@@ -83,4 +82,28 @@ export const projectNav = [
 		title: 'Project Two',
 		url: '#',
 	},
+]
+
+export const week = [
+	{
+		id: 1,
+		date: 'Fri Dec 06 2024 00:00:00 GMT+0500 (Uzbekistan Standard Time)',
+		title: 'Week One',
+		desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse, eligendi veniam. Sint incidunt impedit vero ex? Tempore cupiditate assumenda soluta.',
+		time: new Date().toISOString()
+	},
+	{
+		id: 2,
+		date: 'Sat Dec 14 2024 00:00:00 GMT+0500 (Uzbekistan Standard Time)',
+		title: 'Week Two',
+		desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse, eligendi veniam. Sint incidunt impedit vero ex? Tempore cupiditate assumenda soluta.',
+		time: new Date().toISOString()
+	},
+	{
+		id: 3,
+		date: 'Fri May 09 2025 00:00:00 GMT+0500 (Uzbekistan Standard Time)',
+		title: 'Week Three',
+		desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse, eligendi veniam. Sint incidunt impedit vero ex? Tempore cupiditate assumenda soluta.',
+		time: new Date().toISOString()
+	}
 ]

@@ -8,6 +8,7 @@ import './index.css'
 import { ClerkProvider, useAuth } from '@clerk/clerk-react'
 import { ConvexProviderWithClerk } from "convex/react-clerk";
 import { ConvexReactClient } from "convex/react";
+import { ToastProvider } from './components/ui/toast.tsx'
 
 const PUBLISHABLE_KEY = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY
 
@@ -41,7 +42,9 @@ createRoot(document.getElementById('root')!).render(
 			<StrictMode>
 				<ClerkAppearanceWrapper>
 					<ConvexProviderWithClerk client={convex} useAuth={useAuth}>
-						<App />
+						<ToastProvider>
+							<App />
+						</ToastProvider>
 					</ConvexProviderWithClerk>
 				</ClerkAppearanceWrapper>
 			</StrictMode>

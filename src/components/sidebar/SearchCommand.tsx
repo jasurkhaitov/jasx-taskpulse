@@ -1,18 +1,7 @@
 import * as React from "react";
-import {
-  CommandDialog,
-  CommandEmpty,
-  CommandGroup,
-  CommandInput,
-  CommandItem,
-  CommandList,
-  CommandSeparator,
-} from "@/components/ui/command";
-import {
-  SidebarMenuBadge,
-  SidebarMenuButton,
-  SidebarMenuItem,
-} from "../ui/sidebar";
+
+import { CommandDialog, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList, CommandSeparator } from "@/components/ui/command";
+import { SidebarMenuBadge, SidebarMenuButton, SidebarMenuItem } from "../ui/sidebar";
 import { IoSearch } from "react-icons/io5";
 import { cn } from "@/lib/utils";
 import { projectNav, searchCommandNav } from "@/util/data";
@@ -36,7 +25,6 @@ export function CommandDialogDemo() {
 
   return (
     <>
-      {/* Sidebar Menu Trigger */}
       <SidebarMenuItem onClick={() => setOpen((open) => !open)}>
         <SidebarMenuButton className="w-full" asChild>
           <button className={cn("bg-transparent")}>
@@ -47,22 +35,17 @@ export function CommandDialogDemo() {
         </SidebarMenuButton>
       </SidebarMenuItem>
 
-      {/* Command Dialog */}
       <CommandDialog open={open} onOpenChange={setOpen}>
-        {/* Input Field */}
         <CommandInput placeholder="Type a command or search..." />
 
-        {/* Command List */}
         <CommandList>
-          {/* No Results Found */}
           <CommandEmpty>No results found</CommandEmpty>
 
-          {/* Services Section */}
           <CommandGroup heading="Services">
             {searchCommandNav.map((item) => (
               <CommandItem
                 key={item.id}
-                onSelect={() => navigate(item.url)} // Navigate on Enter
+                onSelect={() => navigate(item.url)}
               >
                 <span>{item.icon}</span>
                 <span>{item.title}</span>
@@ -72,12 +55,11 @@ export function CommandDialogDemo() {
 
           <CommandSeparator />
 
-          {/* Projects Section */}
           <CommandGroup heading="Projects">
             {projectNav.map((item, idx) => (
               <CommandItem
                 key={item.id}
-                onSelect={() => navigate(item.url)} // Navigate on Enter
+                onSelect={() => navigate(item.url)}
               >
                 <span>{idx + 1}.</span>
                 <span>{item.title}</span>

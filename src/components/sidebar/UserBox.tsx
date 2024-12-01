@@ -25,7 +25,7 @@ export const UserBox = () => {
 							<AvatarImage src={user?.imageUrl} />
 						</Avatar>
 						<span className='text-start font-medium line-clamp-1'>
-							{user?.firstName}&apos;s Notion
+							{user?.firstName}&apos;s Taskpulse
 						</span>
 					</div>
 
