@@ -1,4 +1,3 @@
-import Home from '@/components/home/Home'
 import { ProjectSidebar } from '@/components/sidebar/Sidebar'
 import { SidebarProvider, SidebarTrigger } from '@/components/ui/sidebar'
 import { useUser } from '@clerk/clerk-react'
@@ -17,7 +16,7 @@ export default function ProjectPlannerPage() {
 				<ProjectSidebar />
 				<main className='flex-1 overflow-y-auto p-2'>
 					<SidebarTrigger />
-					<Home title={'Project Planner'} />
+					Lorem ipsum dolor sit amet consectetur, adipisicing elit. Harum sed libero earum iusto itaque asperiores at tempora soluta ea accusantium amet doloribus eaque atque, sit quaerat eius, debitis pariatur quibusdam consequatur. Ipsam molestias natus illo perspiciatis laboriosam corporis reprehenderit totam fugiat. Id molestiae iste sint sapiente voluptatem totam at perspiciatis.
 				</main>
 			</div>
 		</SidebarProvider>

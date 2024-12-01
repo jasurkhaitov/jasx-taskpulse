@@ -1,4 +1,3 @@
-import Home from '@/components/home/Home'
 import { ProjectSidebar } from '@/components/sidebar/Sidebar'
 import { SidebarProvider, SidebarTrigger } from '@/components/ui/sidebar'
 import { useUser } from '@clerk/clerk-react'
@@ -17,7 +16,7 @@ export default function ReadingPage() {
 				<ProjectSidebar />
 				<main className='flex-1 overflow-y-auto p-2'>
 					<SidebarTrigger />
-					<Home title={'Reading List'} />
+					Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sequi suscipit itaque commodi in consequuntur, debitis dolorem quis quae, et nihil animi eligendi consequatur. Illo animi iure distinctio enim necessitatibus explicabo.
 				</main>
 			</div>
 		</SidebarProvider>
