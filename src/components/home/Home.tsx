@@ -1,18 +1,14 @@
-import { SidebarTrigger } from '../ui/sidebar'
 import HomeJournal from './HomeJournal'
 import HomeMonthlyBudget from './HomeMonthlyBudget'
 import HomeWeeklyToDoList from './HomeWeeklyToDoList'
 import HomeProjectPlanner from './HomeProjectPlanner'
 import HomeReadingBook from './HomeReadingBook'
+import DocumentNavbar from '../shared/DocumentNavbar'
 
 export default function Home() {
 	return (
 		<div className='space-y-3 px-5 py-3'>
-			<div className='flex items-center justify-between px-5'>
-				<h3 className='text-xl font-bold'>Home</h3>
-
-				<SidebarTrigger />
-			</div>
+			<DocumentNavbar title='Home'/>
 
 			<div className='w-full'>
 				<HomeMonthlyBudget />

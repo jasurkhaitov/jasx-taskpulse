@@ -3,7 +3,7 @@ import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { useToast } from '@/hooks/use-toast'
 
-export default function AddWeeklyActivity({day, onClose} :{day :string, onClose :() => void}) {
+export default function AddWeeklyActivity({day} :{day :string}) {
   const [newTask, setNewTask] = useState('')
 
 	const {toast} = useToast()
@@ -15,8 +15,6 @@ export default function AddWeeklyActivity({day, onClose} :{day :string, onClose 
       toast({
         description: `New "${newTask}" task has been added to ${day}.`,
       })
-
-      onClose()
     }
   }
 

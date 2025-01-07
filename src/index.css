@@ -140,3 +140,15 @@ a {
     @apply bg-background text-foreground;
 	}
 }
+
+.weeklyDailyActivityContainer::-webkit-scrollbar {
+	@apply w-[2px];
+}
+
+.weeklyDailyActivityContainer::-webkit-scrollbar-track {
+	@apply bg-transparent;
+}
+
+.weeklyDailyActivityContainer::-webkit-scrollbar-thumb {
+	@apply rounded-[10px] dark:bg-blue-500 bg-blue-700;
+}

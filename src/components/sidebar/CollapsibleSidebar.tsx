@@ -11,7 +11,7 @@ import { GoProjectRoadmap } from 'react-icons/go'
 export default function CollapsibleSidebar() {
 	const data = [
 		{
-			title: 'Project',
+			title: 'Projects',
 			url: '/documents/projects',
 			items: [
 				{

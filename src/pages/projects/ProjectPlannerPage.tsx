@@ -1,5 +1,6 @@
+import Project from '@/components/projects/Project'
 import { ProjectSidebar } from '@/components/sidebar/Sidebar'
-import { SidebarProvider, SidebarTrigger } from '@/components/ui/sidebar'
+import { SidebarProvider } from '@/components/ui/sidebar'
 import { useUser } from '@clerk/clerk-react'
 import { useEffect } from 'react'
 
@@ -12,11 +13,11 @@ export default function ProjectPlannerPage() {
 
 	return (
 		<SidebarProvider>
-			<div className='flex h-screen'>
+			<div className='flex h-screen w-full'>
 				<ProjectSidebar />
-				<main className='flex-1 overflow-y-auto p-2'>
-					<SidebarTrigger />
-					Lorem ipsum dolor sit amet consectetur, adipisicing elit. Harum sed libero earum iusto itaque asperiores at tempora soluta ea accusantium amet doloribus eaque atque, sit quaerat eius, debitis pariatur quibusdam consequatur. Ipsam molestias natus illo perspiciatis laboriosam corporis reprehenderit totam fugiat. Id molestiae iste sint sapiente voluptatem totam at perspiciatis.
+
+				<main className='flex-1 h-full overflow-y-auto'>
+					<Project />
 				</main>
 			</div>
 		</SidebarProvider>

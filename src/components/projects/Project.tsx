@@ -1,51 +1,41 @@
-import CoverImage from '../../assets/cover.webp'
-import { Button } from '../ui/button'
 import { IoMdTime } from 'react-icons/io'
-
-import {
-	Dialog,
-	DialogContent,
-	DialogHeader,
-	DialogTitle,
-	DialogTrigger,
-} from '@/components/ui/dialog'
-import AddNewWeek from './AddNewWeek'
-import WeekList from './WeekList'
-
-import { FaListUl } from "react-icons/fa6";
+import CoverImage from '../../assets/cover.webp'
 import DocumentNavbar from '../shared/DocumentNavbar'
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '../ui/dialog'
+import { Button } from '../ui/button'
+import { GoProjectRoadmap } from 'react-icons/go'
 
-export default function WeeklyToDo() {
+export default function Project() {
 	return (
 		<div className='space-y-3 px-5 py-3'>
-			<DocumentNavbar title='Weekly To-do List'/>
+			<DocumentNavbar title='Projects' />
 
 			<img
 				className='rounded-sm w-full h-auto'
 				src={CoverImage}
-				alt='Weekly To Do List Cover Image'
+				alt='Project Cover Image'
 			/>
 
 			<div className='flex flex-col md:flex-row items-start justify-between gap-10 p-5'>
 				<div>
 					<h3 className='text-3xl font-bold text-gray-800 dark:text-gray-200 mb-2'>
-						Weekly To-do List
+						Projects
 					</h3>
 
 					<p className='text-gray-600 dark:text-gray-400 text-sm tracking-wide font-space mb-3'>
-						You can organize tasks by week. Each day of the week has its own
-						section, and users can track progress by checking off completed
-						tasks. Simple, intuitive, and great for staying organized !
+						<span className='font-bold text-black dark:text-white'>Project Management</span> featuring an integrated Kanban board system. Users can create and manage multiple projects, each with tasks organized into categories like To-Do, In Progress, Completed, and Produced !
 					</p>
 
 					<Dialog>
 						<DialogTrigger>
-							<Button variant='outline'><FaListUl className='text-xl'/> New Week</Button>
+							<Button variant='outline'>
+								<GoProjectRoadmap className='text-xl' /> New Project
+							</Button>
 						</DialogTrigger>
 						<DialogContent>
 							<DialogHeader>
 								<DialogTitle>Create New Week</DialogTitle>
-									<AddNewWeek />
+								<GoProjectRoadmap />
 							</DialogHeader>
 						</DialogContent>
 					</Dialog>
@@ -88,8 +78,6 @@ export default function WeeklyToDo() {
 					</div>
 				</div>
 			</div>
-			
-			<WeekList/>
 		</div>
 	)
 }

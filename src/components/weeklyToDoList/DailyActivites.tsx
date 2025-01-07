@@ -12,12 +12,23 @@ import {
 	DialogTrigger,
 } from '../ui/dialog'
 import AddWeeklyActivity from './AddWeeklyActivity'
+import { RiDeleteBin6Line } from 'react-icons/ri'
+import { useToast } from '@/hooks/use-toast'
 
 export default function DailyActivites() {
 	const [columns, setColumns] = useState<DayColumn[]>([
 		{
 			day: 'Monday',
 			tasks: [
+				{ id: '1', text: 'Call Mom', completed: false },
+				{ id: '2', text: 'Book appt', completed: false },
+				{ id: '3', text: 'To-do', completed: true },
+				{ id: '1', text: 'Call Mom', completed: false },
+				{ id: '2', text: 'Book appt', completed: false },
+				{ id: '3', text: 'To-do', completed: true },
+				{ id: '1', text: 'Call Mom', completed: false },
+				{ id: '2', text: 'Book appt', completed: false },
+				{ id: '3', text: 'To-do', completed: true },
 				{ id: '1', text: 'Call Mom', completed: false },
 				{ id: '2', text: 'Book appt', completed: false },
 				{ id: '3', text: 'To-do', completed: true },
@@ -73,14 +84,24 @@ export default function DailyActivites() {
 		},
 	])
 
-	const [isNewActivityAdded, setIsNewActivityAdded] = useState(false)
-
 	const toggleTask = (columnIndex: number, taskIndex: number) => {
 		const newColumns = [...columns]
 		newColumns[columnIndex].tasks[taskIndex].completed =
 			!newColumns[columnIndex].tasks[taskIndex].completed
 		setColumns(newColumns)
 	}
+
+	const {toast} = useToast()
+
+	const handeDelete = (task: string, day: string) => {
+		toast({
+			description: (
+				<>
+					<strong>"{task}"</strong> task successfully removed from <strong>{day}</strong>.
+				</>
+			),
+		})
+	}	
 
 	return (
 		<div
@@ -97,44 +118,45 @@ export default function DailyActivites() {
 							{column.day}
 						</CardTitle>
 
-						<Dialog
-							open={isNewActivityAdded}
-							onOpenChange={setIsNewActivityAdded}
-						>
-							<DialogTrigger asChild>
+						<Dialog>
+							<DialogTrigger>
 								<button className='w-auto'>
 									<IoMdAddCircleOutline className='text-2xl' />
 								</button>
 							</DialogTrigger>
+
 							<DialogContent>
 								<DialogHeader>
 									<DialogTitle>Add New Week for {column.day}</DialogTitle>
 								</DialogHeader>
-								<AddWeeklyActivity
-									onClose={() => setIsNewActivityAdded(false)}
-									day={column.day}
-								/>
+
+								<AddWeeklyActivity day={column.day} />
 							</DialogContent>
 						</Dialog>
 					</CardHeader>
 
-					<CardContent className='space-y-3 overflow-y-scroll'>
+					<CardContent className='space-y-1 weeklyDailyActivityContainer overflow-y-scroll h-[200px]'>
 						{column.tasks.map((task, taskIndex) => (
-							<div key={task.id} className='flex items-center space-x-2'>
-								<Checkbox
-									id={task.id}
-									checked={task.completed}
-									onCheckedChange={() => toggleTask(columnIndex, taskIndex)}
-								/>
-								<label
-									htmlFor={task.id}
-									className={cn(
-										'text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70',
-										task.completed && 'line-through text-muted-foreground'
-									)}
-								>
-									{task.text}
-								</label>
+							<div
+								key={task.id}
+								className='flex group/task cursor-pointer rounded p-2 hover:bg-bgLightBox dark:hover:bg-bgDarkBox items-center justify-between'
+							>
+								<div className='flex space-x-2 items-center'>
+									<Checkbox
+										checked={task.completed}
+										onCheckedChange={() => toggleTask(columnIndex, taskIndex)}
+									/>
+									<label
+										className={cn(
+											'text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 hover:cursor-text',
+											task.completed && 'line-through text-muted-foreground'
+										)}
+									>
+										{task.text}
+									</label>
+								</div>
+
+								<RiDeleteBin6Line onClick={() => handeDelete(task.text, column.day)} className='text-red-600 hidden group-hover/task:block'/>
 							</div>
 						))}
 					</CardContent>
